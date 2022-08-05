@@ -1,0 +1,17 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.miaoke.root" : {
+			"initial_state" : "default",
+			"states" : {
+				"default" : {
+					"animations" : [
+						"miaoke_default",
+						{ "miaoke_rest" : "query.is_on_ground && query.ground_speed<0.5"},
+						{ "miaoke_walk" : "query.modified_move_speed"}
+					]
+				}
+			}
+		}
+	}
+}

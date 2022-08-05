@@ -1,0 +1,20 @@
+{
+	"format_version": 2,
+	"header": {
+		"description": "§l§3CNQuanYeCha的MeowHouse(喵喵屋)v2\n§7作者bilibili主页：\nhttps://space.bilibili.com/1968985335\n\n§2本组件内有各种实用/有趣的玩意\n\n§f本作品采用知识共享署名-非商业性-相同方式共享 4.0 国际许可协议进行许可。 要查看此许可证的副本，请访问\nhttp://creativecommons.org/licenses/by-nc-sa/4.0/.\n\nThis work is licensed under the Creative Commons 署名-非商业性使用-相同方式共享 4.0 国际 License. To view a copy of this license, visit\nhttp://creativecommons.org/licenses/by-nc-sa/4.0/.",
+		"name": "MeowHouse(喵喵屋)",
+		"uuid": "2037dbd2-99f2-4649-90a9-6ed80e236b81",
+		"version": [0, 0, 1],
+		"min_engine_version": [ 1, 18, 10 ]
+	},
+	"modules": [{
+		"description": "MeowHouseR",
+		"type": "resources",
+		"uuid": "76fdfd8f-4ae1-4b8c-b618-35907ea8fa69",
+		"version": [0, 0, 1]
+	}],
+	"dependencies": [{
+		"uuid": "46f701f7-182c-4be0-8298-e8e8bc72035a",
+		"version": [0, 0, 1]
+	}]
+}

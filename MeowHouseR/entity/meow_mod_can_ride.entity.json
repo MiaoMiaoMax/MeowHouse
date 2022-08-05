@@ -1,0 +1,22 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "meow:meow_mod_can_ride",
+			"materials": { "default": "entity" },
+			"textures": {
+				"default": "textures/entity/meow_mod"
+			},
+			"geometry": {
+				"default":"geometry.meow_mod"
+			},
+			"render_controllers": [
+				"controller.render.default"
+			],
+			"spawn_egg": {
+				"base_color": "#9e9e9e",
+				"overlay_color": "#464646"
+			}
+		}
+	}
+}

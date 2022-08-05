@@ -1,0 +1,33 @@
+{
+	"resource_pack_name": "MeowHouse(喵喵屋)",
+	"texture_name": "atlas.items",
+	"texture_data": {
+		"peach_sapling_placer":{
+			"textures":"textures/items/peach_sapling_placer"
+		},
+		"steak_raw": {
+			"textures": ["textures/items/steak_raw"]
+		},
+		"steak_grilled": {
+			"textures": ["textures/items/steak_grilled"]
+		},
+		"iron_plate": {
+			"textures": ["textures/items/iron_plate"]
+		},
+		"steak_sizzling_raw": {
+			"textures": ["textures/items/steak_sizzling_raw"]
+		},
+		"steak_sizzling": {
+			"textures": ["textures/items/steak_sizzling"]
+		},
+		"peach_stick": {
+			"textures": ["textures/items/peach_stick"]
+		},
+		"peach_sword": {
+			"textures": ["textures/items/peach_sword"]
+		},
+		"book_magic": {
+			"textures": ["textures/items/book_magic"]
+		}
+	}
+}

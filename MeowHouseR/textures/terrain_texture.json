@@ -1,0 +1,50 @@
+{
+	"resource_pack_name": "MeowHouse(喵喵屋)",
+	"num_mip_levels": 4,
+	"padding": 8,
+	"texture_name": "atlas.terrain",
+	"texture_data": {
+		"peach_blossom": {
+			"textures": "textures/blocks/peach_blossom"
+		},
+		"peach_blossom_opaque": {
+			"textures": "textures/blocks/peach_blossom_opaque"
+		},
+		"peach_log_top": {
+			"textures": "textures/blocks/peach_log_top"
+		},
+		"peach_log": {
+			"textures": "textures/blocks/peach_log"
+		},
+		"peach_stripped_log_top": {
+			"textures": "textures/blocks/peach_stripped_log_top"
+		},
+		"peach_stripped_log": {
+			"textures": "textures/blocks/peach_stripped_log"
+		},
+		"peach_sapling":{
+			"textures":"textures/blocks/peach_sapling"
+		},
+		"peach_planks": {
+			"textures": "textures/blocks/peach_planks"
+		},
+		"crafting_table_magic_top": {
+			"textures": "textures/blocks/crafting_table_magic_top"
+		},
+		"crafting_table_magic_side": {
+			"textures": "textures/blocks/crafting_table_magic_side"
+		},
+		"crafting_table_magic_front": {
+			"textures": "textures/blocks/crafting_table_magic_front"
+		},
+		"chaos_recloser_top": {
+			"textures": "textures/blocks/chaos_recloser_top"
+		},
+		"chaos_recloser_side": {
+			"textures": "textures/blocks/chaos_recloser_side"
+		},
+		"chaos_recloser_down": {
+			"textures": "textures/blocks/chaos_recloser_down"
+		}
+	}
+}
