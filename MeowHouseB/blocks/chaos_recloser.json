@@ -1,0 +1,37 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "meow:chaos_recloser"
+		},
+		"components": {
+			"minecraft:destroy_time": 20,
+			"minecraft:explosion_resistance": 10.0,
+			"minecraft:friction": 0.6,
+			"minecraft:map_color": "#000000",
+			"minecraft:block_light_absorption": 0,
+			"minecraft:block_light_emission": 0,
+			"minecraft:flammable": {
+				"burn_odds": 0,
+				"flame_odds": 0
+			},
+			"minecraft:unit_cube": {},
+			"minecraft:creative_category": {
+				"category": "items"
+			//},
+			//"minecraft:on_interact": {
+				//"condition": " ",
+				//"event": "command",
+				//"target": "self"
+			}
+		},
+		"events": {
+			"command": {
+				"run_command": {
+					"command": ["execute @r[c=5,type=!lightning_bolt] ~ ~ ~ summon lightning_bolt ~ ~0.5 ~"],
+					"target": "self"
+				}
+			}
+		}
+	}
+}

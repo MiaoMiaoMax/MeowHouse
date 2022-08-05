@@ -1,0 +1,69 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:item": {
+		"description": {
+			"identifier": "meow:steak_sizzling",
+			"category": "equipment" 
+		},
+
+		"components": {
+			"minecraft:stacked_by_data": true,//是否堆叠
+			"minecraft:use_duration": 1.6,
+			"minecraft:food": {//食物的组件
+				"nutrition": 8,//补充的饱食度的大小
+				"saturation_modifier": "supernatural",
+				"can_always_eat": false,//是否吃饱了还能吃。参考紫頌果和苹果的区别。
+				"using_converts_to": "meow:iron_plate",
+				"on_consume": {
+					"event": "buff",
+					"target": "self"
+				}
+			},
+			"minecraft:icon": {
+				"texture": "steak_sizzling"//链接贴图的标识符
+			},
+			"minecraft:use_animation": "eat",//使用这个物品时使用的动画
+			"minecraft:creative_category": {
+				"parent": "itemGroup.name.miscFood"//定义此物品出现在创造背包的哪个分类
+			}
+		},
+		"events": {
+			"buff": {
+				"sequence": [
+					{
+						"add_mob_effect": {
+							"effect": "regeneration",
+							"duration": 60,
+							"amplifier": 4,
+							"target": "holder"
+						}
+					},
+					{
+						"add_mob_effect": {
+							"effect": "speed",
+							"duration": 45,
+							"amplifier": 1,
+							"target": "holder"
+						}
+					},
+					{
+						"add_mob_effect": {
+							"effect": "strength",
+							"duration": 60,
+							"amplifier": 3,
+							"target": "holder"
+						}
+					},
+					{
+						"add_mob_effect": {
+							"effect": "health_boost",
+							"duration": 60,
+							"amplifier": 2,
+							"target": "holder"
+						}
+					}
+				]
+			}
+		}
+	}
+}

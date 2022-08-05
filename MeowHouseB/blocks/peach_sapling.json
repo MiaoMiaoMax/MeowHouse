@@ -1,0 +1,185 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "meow:peach_sapling",
+			"properties": {
+				"meow:growing": [0, 1, 2, 3, 4, 5, 6, 7, 8],//树苗生长阶段
+				"meow:growing_out": [0, 1]//树苗长出阶段
+			}
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('meow:growing') == 0 || query.block_property('meow:growing') == 1 || query.block_property('meow:growing') == 2 || query.block_property('meow:growing') == 3 ||query.block_property('meow:growing') == 4 || query.block_property('meow:growing') == 5 || query.block_property('meow:growing') == 6 || query.block_property('meow:growing') == 7",
+				"components": {
+					"minecraft:on_interact": {
+						"condition": "query.get_equipped_item_name('main_hand') == 'bone_meal'",
+						"event": "bone_meal"
+					},
+					"minecraft:ticking": {
+						"range": [120, 180],
+						"on_tick": {
+							"event": "growing"
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('meow:growing') == 8",
+				"components": {
+					"minecraft:ticking": {
+						"range": [0, 0],
+						"on_tick": {
+							"event": "grow_8"
+						}
+					}
+				}
+			}
+		],
+		"components": {
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "peach_sapling",
+					"render_method": "alpha_test",
+					//添加下面这两个组件以从此块中删除阴影：
+					"face_dimming": false,
+					"ambient_occlusion": false
+				}
+			},
+			"minecraft:pick_collision": {
+				"origin": [-6, 0, -6],
+				"size": [12, 13, 12]
+			},
+			"minecraft:loot": "loot_tables/blocks/peach_sapling.json",//添加战利品组件，使其掉落的是树苗放置器(即树苗的物品形式)
+			"minecraft:geometry": "geometry.peach_sapling",
+			"minecraft:destroy_time": 0.01,
+			"minecraft:entity_collision": false,
+			"minecraft:breathability": "air",
+			"minecraft:block_light_absorption": 0,
+			"minecraft:placement_filter": {
+				"conditions": [
+					{
+						"block_filter": ["minecraft:dirt", "minecraft:grass", "minecraft:podzol"],//仅允许在这些方块上放置
+						"allowed_faces": ["up"]
+					}
+				]
+			},
+			"minecraft:ticking": {//开始生长(初始化)
+				"range": [1, 1],
+				"on_tick": {
+					"event": "grow_0"
+				}
+			}
+		},
+		"events": {
+			"grow_0": {
+				"set_block_property": {
+					"meow:growing": 0,//将生长阶段设置为 0
+					"meow:growing_out": 0//将长出阶段设置为 0
+				}
+			},
+			"growing": {
+				"randomize": [//设置生长成功与失败的随机池
+					{
+						"weight": 6,//概率为6/10
+						"run_command": {
+							"command": ["particle minecraft:villager_angry ~~0.4~"]//添加生长失败粒子
+						}
+					},
+					{
+						"weight": 4,//概率为4/10
+						"sequence": [
+							{
+								"run_command": {
+									"command": ["particle minecraft:crop_growth_emitter ~~~"]//添加生长成功粒子
+								}
+							},
+							{
+								"condition": "q.block_property('meow:growing') == 0",
+								"set_block_property": {
+									"meow:growing": 1//将生长阶段设置为 1
+								}
+							},
+							{
+								"condition": "q.block_property('meow:growing') == 1",
+								"set_block_property": {
+									"meow:growing": 2
+								}
+							},
+							{
+								"condition": "q.block_property('meow:growing') == 2",
+								"set_block_property": {
+									"meow:growing": 3
+								}
+							},
+							{
+								"condition": "q.block_property('meow:growing') == 3",
+								"set_block_property": {
+									"meow:growing": 4
+								}
+							},
+							{
+								"condition": "q.block_property('meow:growing') == 4",
+								"set_block_property": {
+									"meow:growing": 5
+								}
+							},
+							{
+								"condition": "q.block_property('meow:growing') == 5",
+								"set_block_property": {
+									"meow:growing": 6
+								}
+							},
+							{
+								"condition": "q.block_property('meow:growing') == 6",
+								"set_block_property": {
+									"meow:growing": 7
+								}
+							},
+							{
+								"condition": "q.block_property('meow:growing') == 7",
+								"set_block_property": {
+									"meow:growing": 8
+								}
+							}
+						]
+					}
+				]
+			},
+			"grow_8": {
+				"sequence": [
+					{
+						"condition": "q.block_property('meow:growing_out') == 0",
+						"run_command": {
+							"command": ["setblock ~ ~1 ~ meow:peach_log -1 keep"]// 先指令keep生成一格，以检测树苗上一格，是否为空气，防止出现一格的桃花树(干)?
+						}
+					},
+					{
+						"condition": "q.block_property('meow:growing_out') == 0",
+						"set_block_property": {
+							"meow:growing_out": 1//将长出阶段设置为 1
+						}
+					},
+					{
+						"condition": "q.block_property('meow:growing_out') == 1 && q.block_neighbor_has_any_tag(0,1,0,'meow:peach_log')",
+						"run_command": {
+							"command": ["particle minecraft:totem_particle ~~1~", "setblock ~ ~ ~ meow:peach_tree_root"]// 粒子和指令生成树根
+						}
+					}
+				]
+			},
+			"bone_meal": {
+				"sequence": [
+					{
+						"decrement_stack": {}//清除用于交互的项目(骨粉)
+					},
+					{
+						"trigger": {
+							"event": "growing"//运行 growing 事件
+						}
+					}
+				]
+			}
+		}
+	}
+}

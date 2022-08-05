@@ -1,0 +1,197 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "meow:peach_blossom",
+			"properties": {
+				"meow:decay_tier": [4, 3, 2, 1, 0], //测量到桃木的距离(以块为单位)
+				"meow:not_decay": [false, true], //检测是否由玩家放置或带有特征
+				"meow:solid": [false, true] //使桃花在被包围时不透明
+			}
+		},
+		"components": {
+			"minecraft:creative_category": {
+				"group": "itemGroup.name.leaves",
+				"category": "nature"
+			},
+			"minecraft:on_player_placing": {
+				"event": "meow:stop_decay",
+				"target": "self"
+			},
+			"minecraft:on_player_destroyed": {
+				"event": "meow:on_destroyed"
+				//触发 meow:on_destroyed 事件，为了检测是玩家用什么工具敲的
+			},
+			"minecraft:ticking": {
+				"looping": true,
+				"range": [0, 0],
+				"on_tick": {
+					"event": "check"
+				}
+			}, //我们需要这两个来与世界生成合作
+			"minecraft:random_ticking": {
+				"on_tick": {
+					"event": "check",
+					"target": "block"
+				}
+			},
+			"tag:meow:peach_blossom": {},
+			"minecraft:breathability": "air",
+			"minecraft:destroy_time": 0.3,
+			"minecraft:explosion_resistance": 0.2,
+			"minecraft:friction": 0.6,
+			"minecraft:map_color": "#ffb3e6",
+			"minecraft:block_light_absorption": 0,
+			"minecraft:block_light_emission": 0,
+			"minecraft:flammable": {
+				"burn_odds": 7,
+				"flame_odds": 25
+			},
+			"minecraft:material_instances": {
+				"*": {
+				 	"texture": "peach_blossom",
+					"render_method": "blend",
+					"ambient_occlusion": true,
+					"face_dimming": true
+				}
+			}
+		},
+
+
+
+		"permutations": [ //这里没什么特殊的，只是桃花的个个阶段。
+			{
+			  "condition": "query.block_property('meow:decay_tier') == 0",
+				"components": {
+					"minecraft:ticking": {
+						"looping": true,
+						"range": [0, 0],
+						"on_tick": {
+							"event": "check"
+						}
+					},
+					"minecraft:unit_cube": {},
+					"tag:meow:decay_tier_0": {},
+					"minecraft:random_ticking": {
+						"on_tick": {
+							"event": "meow:decay"
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('meow:decay_tier') == 1",
+				"components": {
+					"minecraft:ticking": {
+						"looping": true,
+						"range": [0, 0],
+						"on_tick": {
+							"event": "check"
+						}
+					},
+					"minecraft:unit_cube": {},
+					"tag:meow:decay_tier_1": {}
+				}
+			},
+			{
+				"condition": "query.block_property('meow:decay_tier') == 2",
+				"components": {
+					"minecraft:ticking": {
+						"looping": true,
+						"range": [0, 0],
+						"on_tick": {
+							"event": "check"
+						
+						}
+					},
+					"minecraft:unit_cube": {},
+					"tag:meow:decay_tier_2": {}
+				}
+			},
+			{
+				"condition": "query.block_property('meow:decay_tier') == 3",
+				"components": {
+					"minecraft:ticking": {
+					"looping": true,
+					"range": [0, 0],
+					"on_tick": {
+						"event": "check"
+					
+					}
+					},
+					"minecraft:unit_cube": {},
+					"tag:meow:decay_tier_3": {}
+				}
+			},
+			{
+				"condition": "query.block_property('meow:decay_tier') == 4",
+				"components": {
+					"minecraft:ticking": {
+					"looping": true,
+					"range": [0, 0],
+					"on_tick": {
+						"event": "check"
+					}
+					},
+					"minecraft:unit_cube": {},
+					"tag:meow:decay_tier_4": {}
+				}
+			},
+			{
+				"condition": "query.block_property('meow:solid') == true",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "peach_blossom_opaque",
+							"render_method": "opaque"
+						}
+					}
+				}
+			}
+		],
+
+
+
+		"events": {
+		"meow:on_destroyed": { //定义使用不同工具的战利品
+					"sequence": [
+						{
+							"condition": "query.get_equipped_item_name == 'shears'",
+							"spawn_loot": {
+								"table": "loot_tables/blocks/peach_blossom.json"
+							}
+						},
+						{
+							"condition": "query.get_equipped_item_name != 'shears'",
+							"spawn_loot": {
+								"table": "loot_tables/blocks/peach_blossom_loot.json"
+							}
+						}
+					]
+				},
+		  "check":{ //检测原木 为了 测量到桃木的距离(以块为单位)，另外顺便检测周围方块是否为桃木/桃花/石头 为了 使桃花在被包围时不透明
+			  "sequence": [
+					{
+						"condition": "q.block_property('meow:not_decay') == false",
+						"set_block_property": {
+							"meow:decay_tier": "(q.block_neighbor_has_any_tag(0,0,-1,'meow:peach_log') || q.block_neighbor_has_any_tag(0,0,1,'meow:peach_log') || q.block_neighbor_has_any_tag(-1,0,0,'meow:peach_log') || q.block_neighbor_has_any_tag(1,0,0,'meow:peach_log') || q.block_neighbor_has_any_tag(0,-1,0,'meow:peach_log') || q.block_neighbor_has_any_tag(0,1,0,'meow:peach_log')) ? 4 : ((q.block_neighbor_has_any_tag(0,0,-1,'meow:decay_tier_4') || q.block_neighbor_has_any_tag(0,0,1,'meow:decay_tier_4') || q.block_neighbor_has_any_tag(-1,0,0,'meow:decay_tier_4') || q.block_neighbor_has_any_tag(1,0,0,'meow:decay_tier_4') || q.block_neighbor_has_any_tag(0,-1,0,'meow:decay_tier_4') || q.block_neighbor_has_any_tag(0,1,0,'meow:decay_tier_4')) ? 3 : ( (q.block_neighbor_has_any_tag(0,0,-1,'meow:decay_tier_3') || q.block_neighbor_has_any_tag(0,0,1,'meow:decay_tier_3 ') || q.block_neighbor_has_any_tag(-1,0,0,'meow:decay_tier_3') || q.block_neighbor_has_any_tag(1,0,0,'meow:decay_tier_3') || q.block_neighbor_has_any_tag(0,-1,0,'meow:decay_tier_3') || q.block_neighbor_has_any_tag(0,1,0,'meow:decay_tier_3')) ? 2 : ( (q.block_neighbor_has_any_tag(0,0,-1,'meow:decay_tier_2') || q.block_neighbor_has_any_tag(0,0,1,'meow:decay_tier_2') || q.block_neighbor_has_any_tag(-1,0,0,'meow:decay_tier_2') || q.block_neighbor_has_any_tag(1,0,0,'meow:decay_tier_2') || q.block_neighbor_has_any_tag(0,-1,0,'meow:decay_tier_2') || q.block_neighbor_has_any_tag(0,1,0,'meow:decay_tier_2')) ? 1 : 0 ) ) )"
+						}
+					},
+					{
+						"set_block_property": {
+							"meow:solid": "q.block_neighbor_has_any_tag(0,0,-1,'meow:peach_log','stone','meow:peach_blossom') && q.block_neighbor_has_any_tag(0,0,1,'meow:peach_log','stone','meow:peach_blossom') && q.block_neighbor_has_any_tag(0,1,0,'meow:peach_log','stone','meow:peach_blossom') && q.block_neighbor_has_any_tag(0,-1,0,'meow:peach_log','stone','meow:peach_blossom') && q.block_neighbor_has_any_tag(-1,0,0,'meow:peach_log','stone','meow:peach_blossom') && q.block_neighbor_has_any_tag(1,0,0,'meow:peach_log','stone','meow:peach_blossom')"
+						}
+					}
+				]
+			},
+			"meow:stop_decay":{ //放置时
+				"set_block_property": {
+					"meow:not_decay": true
+				}
+			},
+		   "meow:decay":{ //腐烂时
+				"die": {}
+			}
+		}
+	}
+}

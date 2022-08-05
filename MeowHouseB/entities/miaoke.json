@@ -1,0 +1,199 @@
+{
+	"format_version": "1.18.10",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "meow:miaoke",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+	
+		"component_groups": {
+			"meow:kill":{
+				"minecraft:health": {
+					"value": 0,
+					"min": 0,
+					"max": 0
+				}
+			},
+			"meow:small":{
+				"minecraft:scale": {
+					"value": 0.5
+				}
+			},
+			"meow:large":{
+				"minecraft:scale": {
+					"value": 0.85
+				}
+			},
+			"meow:nameable_always_show": {
+				"minecraft:nameable": {
+					"allow_name_tag_renaming": false,
+					"always_show": true
+				}
+			},
+			"meow:npc": {
+				"minecraft:npc": {}
+			}
+		},
+	
+		"components": {
+			"minecraft:is_hidden_when_invisible": {
+			},
+			"minecraft:type_family": {
+				"family": [ "meow", "inanimate", "miaoke" ]
+			},
+			"minecraft:collision_box": {
+				"width": 0.5,
+				"height": 1.5
+			},
+			"minecraft:scale": {
+				"value": 0.7
+			},
+			"minecraft:health": {
+				"value": 1,
+				"min": 1,
+				"max": 1
+			},
+			"minecraft:damage_sensor": {
+				"triggers": {
+					"cause": "all",
+					"deals_damage": false
+				}
+			},
+			"minecraft:knockback_resistance": {
+				"value": 1.0
+			},
+			"minecraft:movement": {
+				"value": 0.3
+			},
+			"minecraft:loot": {
+				"table": "loot_tables/entities/miaoke.json"
+			},
+			"minecraft:navigation.walk": {
+				"can_path_over_water": true,
+				"avoid_water": true,
+				"avoid_damage_blocks": true
+			},
+			"minecraft:movement.basic": {},
+			"minecraft:jump.static": {},
+			"minecraft:can_climb": {},
+			"minecraft:attack": {
+				"damage": 5
+			},
+			"minecraft:behavior.float": {
+				"priority": 0
+			},
+			"minecraft:behavior.mount_pathing": {
+				"priority": 1,
+				"speed_multiplier": 1.25,
+				"target_dist": 0,
+				"track_target": true
+			},
+			"minecraft:behavior.stay_while_sitting": {
+				"priority": 3
+			},
+			"minecraft:behavior.leap_at_target": {
+				"priority": 4,
+				"target_dist": 0.4
+			},
+			"minecraft:behavior.melee_attack": {
+				"priority": 5
+			},
+			"minecraft:behavior.random_stroll": {
+				"priority": 8,
+				"speed_multiplier": 1.0
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 6,
+				"target_distance": 2.6,
+				"probability": 0.02
+			},
+			"minecraft:persistent": {},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 3
+			},
+			"minecraft:nameable": {
+				"allow_name_tag_renaming": false,
+				"always_show": false
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:conditional_bandwidth_optimization": {}
+		},
+	
+	
+		"events": {
+			"meow:kill": {
+				"add": {
+					"component_groups": [
+						"meow:kill"
+					]
+				}
+			},
+			"meow:small": {
+				"add": {
+					"component_groups": [
+						"meow:small"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"meow:large"
+					]
+				}
+			},
+			"meow:large": {
+				"add": {
+					"component_groups": [
+						"meow:large"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"meow:small"
+					]
+				}
+			},
+			"meow:restore_size": {
+				"remove": {
+					"component_groups": [
+						"meow:small",
+						"meow:large"
+					]
+				}
+			},
+			"meow:nameable_always_show": {
+				"add": {
+					"component_groups": [
+						"meow:nameable_always_show"
+					]
+				}
+			},
+			"meow:no_nameable_always_show": {
+				"remove": {
+					"component_groups": [
+						"meow:nameable_always_show"
+					]
+				}
+			},
+			"meow:npc": {
+				"add": {
+					"component_groups": [
+						"meow:npc"
+					]
+				}
+			},
+			"meow:no_npc": {
+				"remove": {
+					"component_groups": [
+						"meow:npc"
+					]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,72 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "meow:peach_stripped_log",
+			"properties": {
+				"meow:facing_direction": [0, 1, 2]
+			}
+		},
+		"components": {
+			"tag:meow:peach_log": {},
+			"minecraft:destroy_time": 1.5,
+			"minecraft:explosion_resistance": 2.0,
+			"minecraft:friction": 0.6,
+			"minecraft:map_color": "#3b310c",
+			"minecraft:block_light_absorption": 0,
+			"minecraft:block_light_emission": 0,
+			"minecraft:flammable": {
+				"burn_odds": 50,
+				"flame_odds": 25
+			},
+			"minecraft:unit_cube": {},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "peach_stripped_log",
+					"render_method": "opaque"
+				},
+				"ends": {
+					"texture": "peach_stripped_log_top",
+					"render_method": "opaque"
+				},
+				"up": "ends",
+				"down": "ends"
+			},
+			"minecraft:loot": "loot_tables/blocks/peach_stripped_log.json",
+			"minecraft:creative_category": {
+				"category": "nature",
+				"group": "itemGroup.name.log"
+			},
+			"minecraft:on_player_placing": {
+				"event": "meow:set_facing_direction"
+			}
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('meow:facing_direction') == 0",
+				"components": {
+					"minecraft:rotation": [0, 0, 0]
+				}
+			},
+			{
+				"condition": "query.block_property('meow:facing_direction') == 1",
+				"components": {
+					"minecraft:rotation": [90, 0, 0]
+				}
+			},
+			{
+				"condition": "query.block_property('meow:facing_direction') == 2",
+				"components": {
+					"minecraft:rotation": [0, 0, 90]
+				}
+			}
+		],
+		"events": {
+			"meow:set_facing_direction": {
+				"set_block_property": {
+					"meow:facing_direction": "math.floor( query.block_face / 2.0 )"
+				}
+			}
+		}
+	}
+}

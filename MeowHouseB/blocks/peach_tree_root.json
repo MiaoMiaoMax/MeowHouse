@@ -1,0 +1,221 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "meow:peach_tree_root",
+			"properties":{
+				"meow:growing": [0, 1, 2, 3, 4, 5, 6]//树根生长阶段
+			}
+		},
+		"components": {
+			"tag:meow:peach_log": {},
+			"minecraft:destroy_time": 10,
+			"minecraft:explosion_resistance": 2.0,
+			"minecraft:friction": 0.6,
+			"minecraft:map_color": "#3b310c",
+			"minecraft:block_light_absorption": 0,
+			"minecraft:block_light_emission": 0,
+			"minecraft:flammable": {
+				"burn_odds": 0,
+				"flame_odds": 0
+			},
+			"minecraft:unit_cube": {},
+			"minecraft:material_instances":{
+				"*":{
+					"texture":"peach_log",
+					"render_method":"opaque"
+				},
+				"ends":{
+					"texture":"peach_log_top",
+					"render_method":"opaque"
+				},
+				"up": "ends",
+				"down": "ends"
+			},
+			"minecraft:loot": "loot_tables/blocks/peach_log.json",
+			"minecraft:ticking": {
+				"looping": true,
+				"range": [0, 0],
+				"on_tick": {
+					"event": "growing"
+				}
+			},
+			"minecraft:random_ticking": {
+				"on_tick": {
+					"event": "growing",
+					"target": "block"
+				}
+			}
+		},
+		"events":{
+			"growing":{
+				"sequence": [
+					{
+						"condition": "q.block_property('meow:growing') == 0 && q.block_neighbor_has_any_tag(0,1,0,'meow:peach_log')",
+						"run_command": {
+							"command": ["setblock ~ ~2 ~ meow:peach_log -1 keep"]
+						}
+					},// 一格一格指令keep生成
+					{
+						"condition": "q.block_property('meow:growing') == 0",
+						"set_block_property": {
+							"meow:growing": 1
+						}
+					},
+					{
+						"condition": "q.block_property('meow:growing') == 1 && q.block_neighbor_has_any_tag(0,2,0,'meow:peach_log')",
+						"run_command": {
+							"command": ["setblock ~ ~3 ~ meow:peach_log -1 keep"]
+						}
+					},
+					{
+						"condition": "q.block_property('meow:growing') == 1",
+						"set_block_property": {
+							"meow:growing": 2
+						}
+					},
+					{
+						"condition": "q.block_property('meow:growing') == 2 && q.block_neighbor_has_any_tag(0,3,0,'meow:peach_log')",
+						"run_command": {
+							"command": ["setblock ~ ~4 ~ meow:peach_log -1 keep"]
+						}
+					},
+					{
+						"condition": "q.block_property('meow:growing') == 2",
+						"set_block_property": {
+							"meow:growing": 3
+						}
+					},
+					{
+						"condition": "q.block_property('meow:growing') == 3 && q.block_neighbor_has_any_tag(0,4,0,'meow:peach_log')",
+						"run_command": {
+							"command": ["setblock ~ ~5 ~ meow:peach_blossom -1 keep"]
+						}
+					},
+					{
+						"condition": "q.block_property('meow:growing') == 3",
+						"set_block_property": {
+							"meow:growing": 4
+						}
+					},
+					{
+						"condition": "q.block_property('meow:growing') == 4 && q.block_neighbor_has_any_tag(0,5,0,'meow:peach_blossom')",
+						"run_command": {
+							"command": ["fill ~-2 ~3 ~-1 ~2 ~4 ~1 meow:peach_blossom -1 keep", "fill ~-1 ~3 ~-2 ~1 ~4 ~2 meow:peach_blossom -1 keep","fill ~-1 ~5 ~ ~1 ~6 ~ meow:peach_blossom -1 keep","fill ~ ~5 ~-1 ~ ~6 ~1 meow:peach_blossom -1 keep"]
+						}
+					},
+					{
+						"condition": "q.block_property('meow:growing') == 4",
+						"set_block_property": {
+							"meow:growing": 5
+						}
+					},
+					{
+						"condition": "q.block_property('meow:growing') == 5 && q.block_neighbor_has_any_tag(0,5,0,'meow:peach_blossom')",
+						"randomize": [
+							{
+								"weight": 1,//概率为1/15
+								"run_command": {
+									"command": ["setblock ~-1 ~5 ~-1 meow:peach_blossom -1 keep"]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": ["setblock ~-1 ~5 ~1 meow:peach_blossom -1 keep"]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": ["setblock ~1 ~5 ~-1 meow:peach_blossom -1 keep"]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": ["setblock ~1 ~5 ~1 meow:peach_blossom -1 keep"]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": ["setblock ~-1 ~5 ~-1 meow:peach_blossom -1 keep", "setblock ~-1 ~5 ~1 meow:peach_blossom -1 keep"]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": ["setblock ~-1 ~5 ~-1 meow:peach_blossom -1 keep", "setblock ~1 ~5 ~-1 meow:peach_blossom -1 keep"]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": ["setblock ~-1 ~5 ~-1 meow:peach_blossom -1 keep", "setblock ~1 ~5 ~1 meow:peach_blossom -1 keep"]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": ["setblock ~-1 ~5 ~1 meow:peach_blossom -1 keep", "setblock ~1 ~5 ~-1 meow:peach_blossom -1 keep"]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": ["setblock ~-1 ~5 ~1 meow:peach_blossom -1 keep", "setblock ~1 ~5 ~1 meow:peach_blossom -1 keep"]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": ["setblock ~1 ~5 ~-1 meow:peach_blossom -1 keep", "setblock ~1 ~5 ~1 meow:peach_blossom -1 keep"]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": ["setblock ~-1 ~5 ~-1 meow:peach_blossom -1 keep", "setblock ~-1 ~5 ~1 meow:peach_blossom -1 keep", "setblock ~1 ~5 ~-1 meow:peach_blossom -1 keep"]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": ["setblock ~-1 ~5 ~-1 meow:peach_blossom -1 keep", "setblock ~-1 ~5 ~1 meow:peach_blossom -1 keep", "setblock ~1 ~5 ~1 meow:peach_blossom -1 keep"]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": ["setblock ~-1 ~5 ~1 meow:peach_blossom -1 keep", "setblock ~1 ~5 ~-1 meow:peach_blossom -1 keep", "setblock ~1 ~5 ~1 meow:peach_blossom -1 keep"]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": ["setblock ~-1 ~5 ~-1 meow:peach_blossom -1 keep", "setblock ~-1 ~5 ~1 meow:peach_blossom -1 keep", "setblock ~1 ~5 ~-1 meow:peach_blossom -1 keep", "setblock ~1 ~5 ~1 meow:peach_blossom -1 keep"]
+								}
+							},
+							{
+								"weight": 1
+							}
+						]
+					},
+					{
+						"condition": "q.block_property('meow:growing') == 5",
+						"set_block_property": {
+							"meow:growing": 6
+						}
+					},
+					{
+						"condition": "q.block_property('meow:growing') == 6 && q.block_neighbor_has_any_tag(0,1,0,'meow:peach_log')",
+						"run_command": {
+							"command": ["setblock ~ ~ ~ meow:peach_log"]
+						}
+					}
+				]
+			}
+        }
+    }
+}

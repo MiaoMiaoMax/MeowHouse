@@ -1,0 +1,68 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:item": {
+		"description": {
+			"identifier": "meow:steak_grilled",
+			"category": "equipment" 
+		},
+
+		"components": {
+			"minecraft:stacked_by_data": true,
+			"minecraft:use_duration": 1.6,
+			"minecraft:food": {
+				"nutrition": 6,
+				"saturation_modifier": "good",
+				"can_always_eat": false,
+				"on_consume": {
+					"event": "buff",
+					"target": "self"
+				}
+			},
+			"minecraft:icon": {
+				"texture": "steak_grilled"
+			},
+			"minecraft:use_animation": "eat",
+			"minecraft:creative_category": {
+				"parent": "itemGroup.name.cookedFood"
+			}
+		},
+		"events": {
+			"buff": {
+				"sequence": [
+					{
+						"add_mob_effect": {
+							"effect": "regeneration",
+							"duration": 30,
+							"amplifier": 3,
+							"target": "holder"
+						}
+					},
+					{
+						"add_mob_effect": {
+							"effect": "speed",
+							"duration": 25,
+							"amplifier": 1,
+							"target": "holder"
+						}
+					},
+					{
+						"add_mob_effect": {
+							"effect": "strength",
+							"duration": 30,
+							"amplifier": 2,
+							"target": "holder"
+						}
+					},
+					{
+						"add_mob_effect": {
+							"effect": "health_boost",
+							"duration": 30,
+							"amplifier": 1,
+							"target": "holder"
+						}
+					}
+				]
+			}
+		}
+	}
+}

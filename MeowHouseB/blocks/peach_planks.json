@@ -1,0 +1,27 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "meow:peach_planks"
+		},
+		"components": {
+			"minecraft:destroy_time": 1.0,
+			"minecraft:explosion_resistance": 2.5,
+			"minecraft:friction": 0.6,
+			"minecraft:map_color": "#b3aa77",
+			"minecraft:block_light_absorption": 0,
+			"minecraft:block_light_emission": 0,
+			"minecraft:flammable": {
+				"burn_odds": 5,
+				"flame_odds": 20
+			},
+			"minecraft:material_instances":{
+				"*":{
+					"texture":"peach_planks",
+					"render_method":"opaque"
+				}
+			},
+			"minecraft:loot": "loot_tables/blocks/peach_planks.json"
+		}
+	}
+}

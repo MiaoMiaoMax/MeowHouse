@@ -1,0 +1,145 @@
+{
+	"format_version": "1.18.10",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "meow:meow_mod",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+	
+		"component_groups": {
+			"minecraft:can_ride": {
+				"minecraft:rideable": {
+					"seat_count": 1,
+					"family_types": [
+						"meow",
+						"blaze", 
+						"creeper", 
+						"enderman", 
+						"illager", 
+						"magmacube", 
+						"piglin", 
+						"skeleton", 
+						"slime", 
+						"villager", 
+						"wandering_trader", 
+						"witch",  
+						"zombie_pigman"
+					],
+					"seats": {
+						"position": [ 0.0, 0.05, 0.0 ],
+						"rotate_rider_by": 0,
+						"lock_rider_rotation": 95
+					}
+				}
+			},
+			"meow:kill":{
+				"minecraft:health": {
+					"value": 0,
+					"min": 0,
+					"max": 0
+				}
+			},
+			"meow:nameable_always_show": {
+				"minecraft:nameable": {
+					"allow_name_tag_renaming": false,
+					"always_show": true
+				}
+			}
+		},
+	
+		"components": {
+			"minecraft:type_family": {
+				"family": [ "meow", "inanimate", "mod" ]
+			},
+			"minecraft:custom_hit_test": {
+				"hitboxes": [{
+					"pivot": [0, 100, 0],
+					"width": 0,
+					"height": 0
+				}]
+			},
+			"minecraft:collision_box": {
+				"width": 0.0,
+				"height": 0.0
+			},
+			"minecraft:health": {
+				"value": 1,
+				"min": 1,
+				"max": 1
+			},
+			"minecraft:damage_sensor": {
+				"triggers": {
+					"cause": "all",
+					"deals_damage": false
+				}
+			},
+			"minecraft:knockback_resistance": {
+				"value": 1.0
+			},
+			"minecraft:rideable": {
+				"seat_count": 1,
+				"family_types": [
+					"meow",
+					"blaze", 
+					"creeper", 
+					"enderman", 
+					"illager", 
+					"magmacube", 
+					"piglin", 
+					"skeleton", 
+					"slime", 
+					"villager", 
+					"wandering_trader", 
+					"witch",  
+					"zombie_pigman"
+				],
+				"seats": {
+					"position": [ 0.0, 0.05, 0.0 ],
+					"rotate_rider_by": 0,
+					"lock_rider_rotation": 95
+				}
+			},
+			"minecraft:nameable": {
+				"allow_name_tag_renaming": false,
+				"always_show": false
+			},
+			"minecraft:persistent": {},
+			"minecraft:physics":{
+				"has_collision": false,
+				"has_gravity": true
+			},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": false
+			},
+			"minecraft:conditional_bandwidth_optimization": {}
+		},
+	
+		"events": {
+			"meow:kill": {
+				"add": {
+					"component_groups": [
+						"meow:kill"
+					]
+				}
+			},
+			"meow:nameable_always_show": {
+				"add": {
+					"component_groups": [
+						"meow:nameable_always_show"
+					]
+				}
+			},
+			"meow:no_nameable_always_show": {
+				"remove": {
+					"component_groups": [
+						"meow:nameable_always_show"
+					]
+				}
+			}
+		}
+	}
+}
+

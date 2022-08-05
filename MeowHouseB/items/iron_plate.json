@@ -1,0 +1,16 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:item": {
+		"description": {
+			"identifier": "meow:iron_plate",
+			"category": "equipment" 
+		},
+
+		"components": {
+			"minecraft:stacked_by_data": true,
+			"minecraft:icon": {
+				"texture": "iron_plate"
+			}
+		}
+	}
+}

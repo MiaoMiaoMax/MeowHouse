@@ -1,0 +1,30 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "meow:steak_sizzling_raw"
+		},
+		"tags": ["crafting_table"],
+		"priority": 0,
+		"pattern": [
+			"#",
+			"T"
+		],
+		"key": {
+			"#": {
+				"item": "meow:steak_raw",
+				"data": 0
+			},
+			"T": {
+				"item": "meow:iron_plate",
+				"data": 0
+			}
+		},
+		"result": {
+			"item": "meow:steak_sizzling_raw",
+			"data": 0,
+			"count": 1
+		},
+		"groups": true
+	}
+}

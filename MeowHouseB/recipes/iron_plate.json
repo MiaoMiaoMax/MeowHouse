@@ -1,0 +1,19 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_furnace": {
+		"description": {
+			"identifier": "meow:iron_plate"
+		},
+		"tags": ["furnace"],
+		"input": {
+			"item": "minecraft:iron_ingot",
+			"data": 0,
+			"count": 1
+		},
+		"output": {
+			"item": "meow:iron_plate",
+			"data": 0
+		},
+		"groups": true
+	}
+}

@@ -1,0 +1,19 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_furnace": {
+		"description": {
+			"identifier": "meow:steak_sizzling"
+		},
+		"tags": ["furnace", "smoker", "campfire", "soul_campfire"],
+		"input": {
+			"item": "meow:steak_sizzling_raw",
+			"data": 0,
+			"count": 1
+		},
+		"output": {
+			"item": "meow:steak_sizzling",
+			"data": 0
+		},
+		"groups": true
+	}
+}

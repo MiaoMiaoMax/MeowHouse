@@ -1,0 +1,29 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "meow:crafting_table_magic"
+		},
+		"components": {
+			"minecraft:destroy_time": 1.0,
+			"minecraft:explosion_resistance": 2.5,
+			"minecraft:friction": 0.6,
+			"minecraft:map_color": "#9fa2f3",
+			"minecraft:block_light_absorption": 0,
+			"minecraft:block_light_emission": 0,
+			"minecraft:flammable": {
+				"burn_odds": 3,
+				"flame_odds": 5
+			},
+			"minecraft:crafting_table": {
+				"custom_description": "魔法合成台",//GUI 中显示的名称
+				"grid_size": 3,//工作台格子边长，这里是3格，也只支持3格，那么这里的效果就是3*3的格子布局=原版工作台
+				"crafting_tags": ["crafting_table", "crafting_table_magic"]//此工作台的tag，为的是在配方那定义那些tag的工作台可以使用此配方，"crafting_table"是原版工作台的tag，所以这个工作台也可以合成原版的东西
+			},
+			"minecraft:loot": "loot_tables/blocks/crafting_table_magic.json",
+			"minecraft:creative_category": {
+				"category": "items"
+			}
+		}
+	}
+}

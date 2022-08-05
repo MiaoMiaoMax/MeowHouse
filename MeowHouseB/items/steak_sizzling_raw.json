@@ -1,0 +1,27 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:item": {
+		"description": {
+			"identifier": "meow:steak_sizzling_raw",
+			"category": "equipment" 
+		},
+
+		"components": {
+			"minecraft:stacked_by_data": true,
+			"minecraft:use_duration": 1.6,
+			"minecraft:food": {
+				"nutrition": 4,
+				"saturation_modifier": "good",
+				"can_always_eat": true,
+				"using_converts_to": "meow:iron_plate"
+			},
+			"minecraft:icon": {
+				"texture": "steak_sizzling_raw"
+			},
+			"minecraft:use_animation": "eat",
+			"minecraft:creative_category": {
+				"parent": "itemGroup.name.miscFood"
+			}
+		}
+	}
+}
