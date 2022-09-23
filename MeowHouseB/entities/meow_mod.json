@@ -53,6 +53,12 @@
 			"minecraft:type_family": {
 				"family": [ "meow", "inanimate", "mod" ]
 			},
+			"minecraft:collision_box": {
+				"width": 0.0,
+				"height": 0.0
+			},
+			//这种定义还是有碰撞箱的，只是很小，依然可以打到
+			//所以这里是为了去除实体阴影
 			"minecraft:custom_hit_test": {
 				"hitboxes": [{
 					"pivot": [0, 100, 0],
@@ -60,21 +66,21 @@
 					"height": 0
 				}]
 			},
-			"minecraft:collision_box": {
-				"width": 0.0,
-				"height": 0.0
-			},
+			//改命中箱，这属于是走弯路(
 			"minecraft:health": {
 				"value": 1,
 				"min": 1,
 				"max": 1
 			},
+			//定义最小生命值，就算kill都不怕(
+			//虽然上面已经定义最小生命值不为零，但第一次受到攻击还是会有被打音效，所以加上下面这个组件(但即使如此，第一次kill还是有音效
 			"minecraft:damage_sensor": {
 				"triggers": {
 					"cause": "all",
 					"deals_damage": false
 				}
 			},
+			//免疫游戏里所有类型的伤害(除了kill，但上面定义了最小生命值，所以你懂的
 			"minecraft:knockback_resistance": {
 				"value": 1.0
 			},
@@ -102,12 +108,12 @@
 				}
 			},
 			"minecraft:nameable": {
-				"allow_name_tag_renaming": false,
+				"allow_name_tag_renaming": false,//取消命名牌重命名
 				"always_show": false
 			},
 			"minecraft:persistent": {},
 			"minecraft:physics":{
-				"has_collision": false,
+				"has_collision": false,//取消碰撞体积
 				"has_gravity": true
 			},
 			"minecraft:pushable": {
@@ -118,7 +124,7 @@
 		},
 	
 		"events": {
-			"meow:kill": {
+			"meow:kill": {//由于无敌，只能定义事件kill了
 				"add": {
 					"component_groups": [
 						"meow:kill"

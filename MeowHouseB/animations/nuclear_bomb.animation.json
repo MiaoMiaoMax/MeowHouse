@@ -1,0 +1,23 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.nuclear_bomb.timeline.default": {
+			"animation_length": 1,
+			"timeline": {
+				
+			}
+		},
+		"animation.nuclear_bomb.timeline.first": {
+			"animation_length": 0.05,
+			"timeline": {
+				"0.02": [
+					"/playsound event.nuclear_strike_warning @a ~~~",
+					"/tellraw @a {\"rawtext\":[{\"text\":\"§r§c检测到核打击，如果听到警报，快跑\n§r§f提醒：请注意音量，请勿在公共场合外放\"}]}",
+					"/titleraw @a title {\"rawtext\":[{\"text\":\"§r§c检测到核打击\"}]}",
+					"/titleraw @a subtitle {\"rawtext\":[{\"text\":\"§r§6如果听到警报，快跑\"}]}",
+					"/titleraw @a actionbar {\"rawtext\":[{\"text\":\"§r§3提醒：请注意音量，请勿在公共场合外放\"}]}"
+				]
+			}
+		}
+	}
+}

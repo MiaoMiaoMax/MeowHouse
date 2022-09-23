@@ -81,25 +81,25 @@
 			"minecraft:attack": {
 				"damage": 5
 			},
-			"minecraft:behavior.float": {
-				"priority": 0
-			},
-			"minecraft:behavior.mount_pathing": {
-				"priority": 1,
-				"speed_multiplier": 1.25,
-				"target_dist": 0,
-				"track_target": true
-			},
-			"minecraft:behavior.stay_while_sitting": {
-				"priority": 3
-			},
-			"minecraft:behavior.leap_at_target": {
-				"priority": 4,
-				"target_dist": 0.4
-			},
-			"minecraft:behavior.melee_attack": {
-				"priority": 5
-			},
+			// "minecraft:behavior.float": {
+			// 	"priority": 0
+			// },
+			// "minecraft:behavior.mount_pathing": {
+			// 	"priority": 1,
+			// 	"speed_multiplier": 1.25,
+			// 	"target_dist": 0,
+			// 	"track_target": true
+			// },
+			// "minecraft:behavior.stay_while_sitting": {
+			// 	"priority": 3
+			// },
+			// "minecraft:behavior.leap_at_target": {
+			// 	"priority": 4,
+			// 	"target_dist": 0.4
+			// },
+			// "minecraft:behavior.melee_attack": {
+			// 	"priority": 5
+			// },
 			"minecraft:behavior.random_stroll": {
 				"priority": 8,
 				"speed_multiplier": 1.0

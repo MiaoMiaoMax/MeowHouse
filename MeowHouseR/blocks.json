@@ -36,5 +36,8 @@
 			"side" : "chaos_recloser_side", 
 			"up" : "chaos_recloser_top"
 		}
+	},
+	"meow:nuclear_bomb": {
+		"sound": "grass"
 	}
 }

@@ -1,0 +1,18 @@
+{
+	"format_version": "1.17.30",
+	"animation_controllers": {
+		"controller.animation.mushroom_cloud.timeline.root": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"timeline_default",
+						{
+							"timeline_first" : "query.is_baby"
+						}
+					]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,42 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "meow:mushroom_cloud",
+			"materials": { "default": "entity_emissive_alpha" },
+			"textures": {
+				"default": "textures/entity/mushroom_cloud"
+			},
+			"geometry": {
+				"default":"geometry.mushroom_cloud"
+			},
+			"scripts": {
+				"animate": [
+					"root"
+				]
+			},
+			"animations": {
+				"root": "controller.animation.mushroom_cloud.root",
+				
+				"default": "animation.mushroom_cloud.default",
+				"first": "animation.mushroom_cloud.first"
+			},
+			"render_controllers": [
+				"controller.render.default"
+			],
+			"spawn_egg": {
+				"base_color": "#9e9e9e",
+				"overlay_color": "#464646"
+			},
+			"particle_effects": {
+				"effect": "meow:radiation_area_effect",
+				"light_beam": "meow:light_beam",
+				"charge": "meow:charge",
+				"release": "meow:release"
+			},
+			"sound_effects": {
+				"strike_warning": "event.nuclear_strike_warning"
+			}
+		}
+	}
+}

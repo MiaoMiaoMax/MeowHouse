@@ -1,0 +1,45 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.nuclear_bomb.default": {
+			"animation_length": 60,
+			"bones": {
+				"body": {
+					"scale": "1 + (math.cos(query.anim_time * 5000) * 0.03)"
+				},
+				"bone2": {
+					"scale": "(query.anim_time > 32.0 ) ? (1 + ((query.anim_time < 34.0 ) ? ((query.anim_time - 32.0)*0.25) : 0.5) + (math.cos(query.anim_time * 1000 + 90) * 0.01)) : 1"
+				},
+				"bone3": {
+					"scale": "(query.anim_time > 32.0 ) ? (1 + ((query.anim_time < 34.0 ) ? ((query.anim_time - 32.0)*0.25) : 0.5) + (math.cos(query.anim_time * 1000 + 180) * 0.01)) : 1"
+				},
+				"bone4": {
+					"scale": "(query.anim_time > 59.0 ) ? (1 + (query.anim_time - 59.0)*100 + (math.cos(query.anim_time * 5000) * 2)) : 1"
+				}
+			},
+			// "sound_effects": {
+			// 	"0.5": {
+			// 		"effect": "strike_warning"
+			// 	}
+			// },
+			"particle_effects": {
+				"0.0": {
+					"effect": "effect",
+					"locator": "locator"
+				},
+				"56.5": {
+					"effect": "charge",
+					"locator": "locator"
+				},
+				"57.5": {
+					"effect": "light_beam",
+					"locator": "locator"
+				},
+				"59.5": {
+					"effect": "release",
+					"locator": "locator"
+				}
+			}
+		}
+	}
+}

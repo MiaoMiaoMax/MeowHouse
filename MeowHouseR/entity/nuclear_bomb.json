@@ -1,0 +1,41 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "meow:nuclear_bomb",
+			"materials": { "default": "entity_emissive_alpha" },
+			"textures": {
+				"default": "textures/entity/nuclear_bomb"
+			},
+			"geometry": {
+				"default":"geometry.nuclear_bomb"
+			},
+			"scripts": {
+				"animate": [
+					"root"
+				]
+			},
+			"animations": {
+				"root": "controller.animation.nuclear_bomb.root",
+				
+				"default": "animation.nuclear_bomb.default"
+			},
+			"render_controllers": [
+				"controller.render.default"
+			],
+			"spawn_egg": {
+				"base_color": "#9e9e9e",
+				"overlay_color": "#464646"
+			},
+			"particle_effects": {
+				"effect": "meow:radiation_area_effect",
+				"light_beam": "meow:light_beam",
+				"charge": "meow:charge",
+				"release": "meow:release"
+			},
+			"sound_effects": {
+				"strike_warning": "event.nuclear_strike_warning"
+			}
+		}
+	}
+}

@@ -1,0 +1,32 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.mushroom_cloud.timeline.default": {
+			"loop": true,
+			"animation_length": 0.01,
+			"timeline": {
+				"0.0": [
+					"/tp ~~~",
+					"/effect @e[r=30,family=!meow] fatal_poison 8 0",
+					"/effect @e[r=30,family=!meow] wither 8 0",
+					"/effect @e[r=38,family=!meow] mining_fatigue 30 2",
+					"/effect @e[r=38,family=!meow] nausea 25 1",
+					"/titleraw @a[r=50,rm=45] actionbar {\"rawtext\":[{\"text\":\"§3检测到附近有巨大辐射源\"}]}",
+					"/titleraw @a[r=45,rm=38] actionbar {\"rawtext\":[{\"text\":\"§6你靠近了辐射源\"}]}",
+					"/titleraw @a[r=38,rm=30] actionbar {\"rawtext\":[{\"text\":\"§6你已受到辐射的影响\"}]}",
+					"/titleraw @a[r=30,rm=25] actionbar {\"rawtext\":[{\"text\":\"§6已达到致命辐射量\"}]}",
+					"/titleraw @a[r=25] actionbar {\"rawtext\":[{\"text\":\"§6某人：一个客户\"}]}"
+				]
+			}
+		},
+		"animation.mushroom_cloud.timeline.first": {
+			"animation_length": 0.05,
+			"timeline": {
+				"0.02": [
+					"/stopsound @a[r=40] event.nuclear_strike_warning",
+					""
+				]
+			}
+		}
+	}
+}

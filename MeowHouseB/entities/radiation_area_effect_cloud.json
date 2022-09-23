@@ -1,0 +1,120 @@
+{
+	"format_version": "1.18.10",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "meow:radiation_area_effect_cloud",
+			// "runtime_identifier": "minecraft:armor_stand",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false,
+
+			"scripts": {
+				"animate": [
+					"timeline_root"
+				]
+			},
+			"animations": {
+				"timeline_root": "controller.animation.radiation_area_effect_cloud.timeline.root",
+	
+				"timeline_default": "animation.radiation_area_effect_cloud.timeline.default"
+			}
+		},
+	
+		"component_groups": {
+			"meow:kill":{
+				"minecraft:health": {
+					"value": 0,
+					"min": 0,
+					"max": 0
+				}
+			},
+			"meow:explosion": {
+				"minecraft:explode": {
+					"fuse_length": 59,
+					"fuse_lit": true,
+					"power": 35,
+					"breaks_blocks": false,
+					"causes_fire": true
+				}
+			}
+		},
+	
+		"components": {
+			"minecraft:type_family": {
+				"family": [ "meow", "inanimate", "radiation" ]
+			},
+			"minecraft:collision_box": {
+				"width": 0.0,
+				"height": 0.0
+			},
+			"minecraft:custom_hit_test": {
+				"hitboxes": [{
+					"pivot": [0, 100, 0],
+					"width": 0,
+					"height": 0
+				}]
+			},
+			"minecraft:health": {
+				"value": 1,
+				"min": 1,
+				"max": 1
+			},
+			"minecraft:damage_sensor": {
+				"triggers": {
+					"cause": "all",
+					"deals_damage": false
+				}
+			},
+			"minecraft:area_attack":{
+				"damage_range": 5,
+				"damage_per_tick": 10,
+				"cause": "wither"
+				// "entity_filter": {
+				// 	 "test": "is_family", "subject": "other", "value": "monster"
+				// }
+			},
+			"minecraft:knockback_resistance": {
+				"value": 1.0
+			},
+			"minecraft:nameable": {
+				"allow_name_tag_renaming": false,
+				"always_show": false
+			},
+			"minecraft:persistent": {},
+			"minecraft:physics":{
+				"has_collision": false,
+				"has_gravity": true
+			},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": false
+			},
+			"minecraft:timer": {
+				"looping": false,
+				"time": 60,
+				"time_down_event": {
+					"event": "meow:kill"
+				}
+			},
+			"minecraft:conditional_bandwidth_optimization": {}
+		},
+	
+		"events": {
+			"meow:kill": {
+				"add": {
+					"component_groups": [
+						"meow:kill"
+					]
+				}
+			},
+			"meow:explosion": {
+				"add": {
+					"component_groups": [
+						"meow:explosion"
+					]
+				}
+			}
+		}
+	}
+}
+

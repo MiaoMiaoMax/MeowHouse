@@ -2,7 +2,7 @@
 	"format_version": "1.16.100",
 	"minecraft:block": {
 		"description": {
-			"identifier": "meow:peach_blossom",
+			"identifier": "meow:peach_blossom_db",
 			"properties": {
 				"meow:decay_tier": [4, 3, 2, 1, 0], //测量到桃木的距离(以块为单位)
 				"meow:not_decay": [false, true], //检测是否由玩家放置或带有特征
@@ -37,7 +37,7 @@
 				}
 			},
 			"tag:meow:peach_blossom": {},
-			"minecraft:breathability": "air",
+			// "minecraft:breathability": "air",
 			"minecraft:destroy_time": 0.3,
 			"minecraft:explosion_resistance": 0.2,
 			"minecraft:friction": 0.6,
@@ -51,7 +51,7 @@
 			"minecraft:material_instances": {
 				"*": {
 				 	"texture": "peach_blossom",
-					"render_method": "blend",
+					"render_method": "opaque",
 					"ambient_occlusion": true,
 					"face_dimming": true
 				}

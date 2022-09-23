@@ -1,0 +1,23 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.radiation_area_effect_cloud.timeline.default": {
+			"loop": true,
+			"animation_length": 0.01,
+			"timeline": {
+				"0.0": [
+					"/tp ~~~",
+					"/effect @e[r=10,family=!meow] fatal_poison 8 0",
+					"/effect @e[r=10,family=!meow] wither 8 0",
+					"/effect @e[r=12,family=!meow] mining_fatigue 30 2",
+					"/effect @e[r=12,family=!meow] nausea 25 1",
+					"/titleraw @a[r=30,rm=15] actionbar {\"rawtext\":[{\"text\":\"§3检测到附近有辐射源\"}]}",
+					"/titleraw @a[r=15,rm=12] actionbar {\"rawtext\":[{\"text\":\"§6你靠近了辐射源\"}]}",
+					"/titleraw @a[r=12,rm=10] actionbar {\"rawtext\":[{\"text\":\"§6你已受到辐射的影响\"}]}",
+					"/titleraw @a[r=10,rm=8] actionbar {\"rawtext\":[{\"text\":\"§6已达到致命辐射量\"}]}",
+					"/titleraw @a[r=8] actionbar {\"rawtext\":[{\"text\":\"§6某人：一个客户\"}]}"
+				]
+			}
+		}
+	}
+}

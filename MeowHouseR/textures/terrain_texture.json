@@ -45,6 +45,12 @@
 		},
 		"chaos_recloser_down": {
 			"textures": "textures/blocks/chaos_recloser_down"
+		},
+		"nuclear_bomb": {
+			"textures": "textures/blocks/nuclear_bomb"
+		},
+		"nuclear_bomb_top": {
+			"textures": "textures/blocks/nuclear_bomb_top"
 		}
 	}
 }

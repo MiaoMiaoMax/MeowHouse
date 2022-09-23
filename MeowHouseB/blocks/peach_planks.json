@@ -15,6 +15,7 @@
 				"burn_odds": 5,
 				"flame_odds": 20
 			},
+			"minecraft:unit_cube": {},
 			"minecraft:material_instances":{
 				"*":{
 					"texture":"peach_planks",

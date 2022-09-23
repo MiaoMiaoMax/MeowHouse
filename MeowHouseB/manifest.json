@@ -1,11 +1,11 @@
 {
 	"format_version": 2,
 	"header": {
-		"description": "§l§3CNQuanYeCha的MeowHouse(喵喵屋)V2\n§2本组件内有各种实用/有趣的玩意\n\n§f作者bilibili主页：\nhttps://space.bilibili.com/1968985335\n\n§f本作品采用知识共享署名-非商业性-相同方式共享 4.0 国际许可协议进行许可。 要查看此许可证的副本，请访问\nhttp://creativecommons.org/licenses/by-nc-sa/4.0/.\n\nThis work is licensed under the Creative Commons 署名-非商业性使用-相同方式共享 4.0 国际 License. To view a copy of this license, visit\nhttp://creativecommons.org/licenses/by-nc-sa/4.0/.",
+		"description": "§l§3CNQuanYeCha的MeowHouse(喵喵屋)V2定制版\n§2本addon内有各种实用/有趣的玩意\n§c注意：该addon要求最低版本为1.19.0\n\n§f作者bilibili主页：\nhttps://space.bilibili.com/1968985335\n\n§f本作品采用知识共享署名-非商业性-相同方式共享 4.0 国际许可协议进行许可。 要查看此许可证的副本，请访问\nhttp://creativecommons.org/licenses/by-nc-sa/4.0/.\n\nThis work is licensed under the Creative Commons 署名-非商业性使用-相同方式共享 4.0 国际 License. To view a copy of this license, visit\nhttp://creativecommons.org/licenses/by-nc-sa/4.0/.",
 		"name": "MeowHouse(喵喵屋)",
 		"uuid": "46f701f7-182c-4be0-8298-e8e8bc72035a",
 		"version": [0, 0, 1],
-		"min_engine_version": [ 1, 18, 10 ]
+		"min_engine_version": [ 1, 19, 0 ]
 	},
 	"modules": [{
 		"description": "MeowHouseB",

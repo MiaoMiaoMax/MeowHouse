@@ -1,0 +1,91 @@
+{
+	"format_version": "1.18.10",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "meow:mushroom_cloud",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false,
+
+			"scripts": {
+				"animate": [
+					"timeline_root"
+				]
+			},
+			"animations": {
+				"timeline_root": "controller.animation.mushroom_cloud.timeline.root",
+	
+				"timeline_default": "animation.mushroom_cloud.timeline.default",
+				"timeline_first": "animation.mushroom_cloud.timeline.first"
+			}
+		},
+	
+		"component_groups": {
+			"meow:kill":{
+				"minecraft:health": {
+					"value": 0,
+					"min": 0,
+					"max": 0
+				}
+			}
+		},
+	
+		"components": {
+			"minecraft:type_family": {
+				"family": [ "meow", "inanimate", "radiation" ]
+			},
+			"minecraft:collision_box": {
+				"width": 1.0,
+				"height": 1.0
+			},
+			"minecraft:health": {
+				"value": 1,
+				"min": 1,
+				"max": 1
+			},
+			"minecraft:damage_sensor": {
+				"triggers": {
+					"cause": "all",
+					"deals_damage": false
+				}
+			},
+			"minecraft:area_attack":{
+				"damage_range": 25,
+				"damage_per_tick": 10,
+				"cause": "wither"
+			},
+			"minecraft:knockback_resistance": {
+				"value": 1.0
+			},
+			"minecraft:persistent": {},
+			"minecraft:physics": {},
+			"minecraft:explode": {
+				"fuse_length": 45,
+				"fuse_lit": true,
+				"power": 35,
+				"breaks_blocks": false,
+				"causes_fire": true
+			},
+			"minecraft:is_baby": {},
+			"minecraft:ageable": {
+				"duration": 0.1
+				// "grow_up": {
+				// 	"event": "meow:cmd",
+				// 	"target": "self"
+				// }
+			},
+			"minecraft:conditional_bandwidth_optimization": {}
+		},
+	
+		"events": {
+			"meow:kill": {
+				"add": {
+					"component_groups": [
+						"meow:kill"
+					]
+				}
+			}
+		}
+	}
+}
+

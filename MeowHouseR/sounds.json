@@ -1,0 +1,11 @@
+{
+	"individual_event_sounds" : {
+        "events" : {
+            "nuclear_strike_warning": {
+                "sound": "event.nuclear_strike_warning",
+                "volume": 1.0,
+                "pitch": 1.0
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+	"format_version": "1.14.0",
+	"sound_definitions": {
+		"event.nuclear_strike_warning": {
+			"category": "neutral",
+			"min_distance": 20.0,
+			//"max_distance": 30.0,
+			"sounds": [{
+				"is3D" : true,
+				"stream": true,
+				"name" : "sounds/event/nuclear_strike_warning",
+				"volume" : 0.40
+			}]
+		}
+	}
+}

@@ -1,0 +1,35 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.mushroom_cloud.default": {
+			"animation_length": 45,
+			"bones": {
+				"cloud": {
+					"scale": "(query.anim_time < 5.5 ) ? ((query.anim_time < 0.5 ) ? (query.anim_time*20) : (10+((query.anim_time-0.5)*5))) + (math.cos(query.anim_time * 5000) * 0.35) : 35 + (math.cos(query.anim_time * 5000) * 0.25)"
+				},
+				"bone": {
+					"position": [
+						0,
+						"(query.anim_time < 5.5 ) ? ((query.anim_time < 0.5 ) ? (query.anim_time*300) : (150+((query.anim_time-0.5)*5))) + (math.cos(query.anim_time * 5000) * 0.35) : 175 + (math.cos(query.anim_time * 5000) * 0.25)",
+						0
+					],
+					"scale": "(query.anim_time < 5.5 ) ? ((query.anim_time < 0.5 ) ? (query.anim_time*20) : (10+((query.anim_time-0.5)*5))) + (math.cos(query.anim_time * 5000) * 0.35) : 35 + (math.cos(query.anim_time * 5000) * 0.25)"
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "effect",
+					"locator": "locator"
+				}
+			}
+		},
+		"animation.mushroom_cloud.first": {
+			"animation_length": 1.5,
+			"bones": {
+				"Shockwave": {
+					"scale": "query.anim_time*5000"
+				}
+			}
+		}
+	}
+}

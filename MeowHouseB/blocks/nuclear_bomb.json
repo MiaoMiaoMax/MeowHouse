@@ -1,0 +1,57 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "meow:nuclear_bomb"
+		},
+		"components": {
+			"tag:meow:nuclear_bomb": {},
+			"minecraft:destroy_time": 1.5,
+			"minecraft:explosion_resistance": 2.0,
+			"minecraft:friction": 0.6,
+			"minecraft:map_color": "#18b100",
+			"minecraft:block_light_absorption": 0,
+			"minecraft:block_light_emission": 0,
+			"minecraft:flammable": {
+				"burn_odds": 0,
+				"flame_odds": 0
+			},
+			"minecraft:unit_cube": {},
+			"minecraft:material_instances":{
+				"*":{
+					"texture":"nuclear_bomb",
+					"render_method":"opaque"
+				},
+				"ends":{
+					"texture":"nuclear_bomb_top",
+					"render_method":"opaque"
+				},
+				"up": "ends",
+				"down": "ends"
+			},
+			"minecraft:loot": "loot_tables/blocks/nuclear_bomb.json",
+			"minecraft:creative_category": {
+				"category": "equipment",
+				"group": "itemGroup.name.nuclear_bomb"
+			},
+			"minecraft:on_interact": {
+				// "condition": " ",
+				"event": "effect"
+				// "target": "self"
+			}
+		},
+		"events":{
+			"effect":{
+				"set_block":{
+					"block_type": "minecraft:air"
+				},
+				"run_command": {
+					"command": [
+						"summon meow:nuclear_bomb ~ ~ ~"
+						//"playsound event.nuclear_strike_warning @a ~ ~ ~",
+					]
+				}
+			}
+        }
+    }
+}
