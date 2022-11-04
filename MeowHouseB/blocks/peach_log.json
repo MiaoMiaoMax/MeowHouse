@@ -3,8 +3,12 @@
 	"minecraft:block": {
 		"description": {
 			"identifier": "meow:peach_log",
-			"properties":{
-				"meow:facing_direction": [0, 1, 2]//定义旋转方向，这里定义有3个方向，0为不变
+			"properties": {
+				"meow:facing_direction": [
+					0,
+					1,
+					2
+				] //定义旋转方向，这里定义有3个方向，0为不变
 			}
 		},
 		"components": {
@@ -20,137 +24,148 @@
 				"flame_odds": 15
 			},
 			"minecraft:unit_cube": {},
-			"minecraft:material_instances":{
-				"*":{
-					"texture":"peach_log",
-					"render_method":"opaque"
-				},
-				"ends":{
-					"texture":"peach_log_top",
-					"render_method":"opaque"
-				},
-				"up": "ends",
-				"down": "ends"
-				//为桃木的侧面和顶部/底部设置不同的纹理
-			},
+			// "minecraft:material_instances": {
+			// 	"*": {
+			// 		"texture": "peach_log",
+			// 		"render_method": "opaque"
+			// 	},
+			// 	"ends": {
+			// 		"texture": "peach_log_top",
+			// 		"render_method": "opaque"
+			// 	},
+			// 	"up": "ends",
+			// 	"down": "ends"
+			// 	//为桃木的侧面和顶部/底部设置不同的纹理
+			// },
 			"minecraft:loot": "loot_tables/blocks/peach_log.json",
 			"minecraft:creative_category": {
 				"category": "nature",
 				"group": "itemGroup.name.log"
 			},
-			"minecraft:on_player_placing":{
-				"event":"meow:set_facing_direction"
+			"minecraft:on_player_placing": {
+				"event": "meow:set_facing_direction"
 			}
 			//在玩家放置时触发 meow:set_facing_direction 事件
 		},
-		"permutations":[
+		"permutations": [
 			{
-				"condition":"query.block_property('meow:facing_direction') == 0",
+				"condition": "query.block_property('meow:facing_direction') == 0",
 				//如果 query.block_property('meow:facing_direction') == 0 那么设置不旋转和 on_interact 组件
-				"components":{
-					"minecraft:rotation":[  0, 0,  0 ],
+				"components": {
+					"minecraft:rotation": [
+						0,
+						0,
+						0
+					],
 					"minecraft:on_interact": {
-                        "condition": "query.equipped_item_any_tag('slot.weapon.mainhand', 'minecraft:is_axe')",
-                        "event": "meow:become_stripped0"
+						"condition": "query.equipped_item_any_tag('slot.weapon.mainhand', 'minecraft:is_axe')",
+						"event": "meow:become_stripped0"
 						//事件设置没有旋转的自定义剥皮桃木
-                    }
-				}
-			},
-			{
-				"condition":"query.block_property('meow:facing_direction') == 1",
-				//如果 query.block_property('meow:facing_direction') == 1 设置旋转和 on_interact 组件
-				"components":{
-					"minecraft:rotation":[ 90, 0, 0 ],
-                    "minecraft:on_interact": {
-                        "condition": "query.equipped_item_any_tag('slot.weapon.mainhand', 'minecraft:is_axe')",
-                        "event": "meow:become_stripped1"
-                        //事件设置带旋转的自定义剥皮桃木
 					}
 				}
 			},
 			{
-				"condition":"query.block_property('meow:facing_direction') == 2",
+				"condition": "query.block_property('meow:facing_direction') == 1",
+				//如果 query.block_property('meow:facing_direction') == 1 设置旋转和 on_interact 组件
+				"components": {
+					"minecraft:rotation": [
+						90,
+						0,
+						0
+					],
+					"minecraft:on_interact": {
+						"condition": "query.equipped_item_any_tag('slot.weapon.mainhand', 'minecraft:is_axe')",
+						"event": "meow:become_stripped1"
+						//事件设置带旋转的自定义剥皮桃木
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('meow:facing_direction') == 2",
 				//如果 query.block_property('meow:facing_direction') == 2 设置旋转和 on_interact 组件
-				"components":{
-					"minecraft:rotation":[ 0, 0, 90  ],
-                    "minecraft:on_interact": {
-                        "condition": "query.equipped_item_any_tag('slot.weapon.mainhand', 'minecraft:is_axe')",
-                        "event": "meow:become_stripped2"
-                        //事件设置带旋转的自定义剥皮桃木
-                    }
+				"components": {
+					"minecraft:rotation": [
+						0,
+						0,
+						90
+					],
+					"minecraft:on_interact": {
+						"condition": "query.equipped_item_any_tag('slot.weapon.mainhand', 'minecraft:is_axe')",
+						"event": "meow:become_stripped2"
+						//事件设置带旋转的自定义剥皮桃木
+					}
 				}
 			}
 		],
-		"events":{
-			"meow:set_facing_direction":{//设置方块旋转
-				"set_block_property":{
-					"meow:facing_direction":"math.floor(query.block_face/2)"
+		"events": {
+			"meow:set_facing_direction": { //设置方块旋转
+				"set_block_property": {
+					"meow:facing_direction": "math.floor(query.block_face/2)"
 				}
 			},
-
 			"meow:become_stripped0": {
-                "sequence": [
-                    {
-                        "run_command": {
-                            "command": [
+				"sequence": [
+					{
+						"run_command": {
+							"command": [
 								"setblock ~~~ meow:peach_stripped_log",
 								"playsound hit.wood @a ~~~"
 							]
-                        }
-                    },
-                    //setblock带有特定旋转(这里没有旋转)的剥皮桃木并播放声音
-                    {
-                        "damage": {
-                            "type": "durability",
-                            "amount": 1,
-                            "target": "item"
-                        }
-                    }
-                    //损坏剥皮桃树原木的玩家的斧头
-                ]
-            },
-            "meow:become_stripped1": {
-                "sequence": [
-                    {
-                        "run_command": {
-                            "command": [
+						}
+					},
+					//setblock带有特定旋转(这里没有旋转)的剥皮桃木并播放声音
+					{
+						"damage": {
+							"type": "durability",
+							"amount": 1,
+							"target": "item"
+						}
+					}
+					//损坏剥皮桃树原木的玩家的斧头
+				]
+			},
+			"meow:become_stripped1": {
+				"sequence": [
+					{
+						"run_command": {
+							"command": [
 								"structure load peach_stripped_log1 ~~~",
 								"playsound hit.wood @a ~~~"
 							]
-                        }
-                    },
-                    //加载结构(带有特定旋转的剥皮桃木)并播放声音
-                    {
-                        "damage": {
-                            "type": "durability",
-                            "amount": 1,
-                            "target": "item"
-                        }
-                    }
-                    //损坏剥皮桃树原木的玩家的斧头
-                ]
-            },
-            "meow:become_stripped2": {
-                "sequence": [
-                    {
-                        "run_command": {
-                            "command": [
+						}
+					},
+					//加载结构(带有特定旋转的剥皮桃木)并播放声音
+					{
+						"damage": {
+							"type": "durability",
+							"amount": 1,
+							"target": "item"
+						}
+					}
+					//损坏剥皮桃树原木的玩家的斧头
+				]
+			},
+			"meow:become_stripped2": {
+				"sequence": [
+					{
+						"run_command": {
+							"command": [
 								"structure load peach_stripped_log2 ~~~",
 								"playsound hit.wood @a ~~~"
 							]
-                        }
-                    },
-                    //加载结构(带有特定旋转的剥皮桃木)并播放声音
-                    {
-                        "damage": {
-                            "type": "durability",
-                            "amount": 1,
-                            "target": "item"
-                        }
-                    }
-                    //损坏剥皮桃树原木的玩家的斧头
-                ]
-            }
-        }
-    }
+						}
+					},
+					//加载结构(带有特定旋转的剥皮桃木)并播放声音
+					{
+						"damage": {
+							"type": "durability",
+							"amount": 1,
+							"target": "item"
+						}
+					}
+					//损坏剥皮桃树原木的玩家的斧头
+				]
+			}
+		}
+	}
 }

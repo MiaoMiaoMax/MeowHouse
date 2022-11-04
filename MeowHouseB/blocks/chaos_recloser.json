@@ -18,8 +18,8 @@
 			"minecraft:unit_cube": {},
 			"minecraft:creative_category": {
 				"category": "items"
-			//},
-			//"minecraft:on_interact": {
+				//},
+				//"minecraft:on_interact": {
 				//"condition": " ",
 				//"event": "command",
 				//"target": "self"
@@ -28,7 +28,9 @@
 		"events": {
 			"command": {
 				"run_command": {
-					"command": ["execute @r[c=5,type=!lightning_bolt] ~ ~ ~ summon lightning_bolt ~ ~0.5 ~"],
+					"command": [
+						"execute @r[c=5,type=!lightning_bolt] ~ ~ ~ summon lightning_bolt ~ ~0.5 ~"
+					],
 					"target": "self"
 				}
 			}

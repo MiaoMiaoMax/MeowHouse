@@ -1,43 +1,56 @@
 {
 	"format_version": [1, 1, 0],
 	"meow:peach_blossom": {
-		"sound" : "grass"
+		"sound": "grass"
 	},
 	"meow:peach_log": {
-		"sound" : "wood"
+		"textures": {
+			"down": "peach_log_top",
+			"side": "peach_log",
+			"top": "peach_log_top"
+		},
+		"sound": "wood"
 	},
 	"meow:peach_stripped_log": {
-		"sound" : "wood"
+		"sound": "wood"
 	},
 	"meow:peach_tree_root": {
-		"sound" : "wood"
+		"sound": "wood"
 	},
 	"meow:peach_sapling": {
 		"sound": "grass"
 	},
 	"meow:peach_planks": {
-		"sound" : "wood"
+		"textures": {
+			"texture": "peach_planks"
+		},
+		"sound": "wood"
 	},
 	"meow:crafting_table_magic": {
-		"textures" : {
-			"down" : "peach_planks",
-			"east" : "crafting_table_magic_side",
-			"north" : "crafting_table_magic_front",
-			"south" : "crafting_table_magic_front",
-			"up" : "crafting_table_magic_top",
-			"west" : "crafting_table_magic_side"
+		"textures": {
+			"down": "peach_planks",
+			"east": "crafting_table_magic_side",
+			"north": "crafting_table_magic_front",
+			"south": "crafting_table_magic_front",
+			"up": "crafting_table_magic_top",
+			"west": "crafting_table_magic_side"
 		},
-		"sound" : "wood"
+		"sound": "wood"
 	},
 	"meow:chaos_recloser": {
 		"sound": "stone",
-		"textures" : {
-			"down" : "chaos_recloser_down",
-			"side" : "chaos_recloser_side", 
-			"up" : "chaos_recloser_top"
+		"textures": {
+			"down": "chaos_recloser_down",
+			"side": "chaos_recloser_side",
+			"up": "chaos_recloser_top"
 		}
 	},
 	"meow:nuclear_bomb": {
+		"textures": {
+			"down": "nuclear_bomb_top",
+			"side": "nuclear_bomb",
+			"up": "nuclear_bomb_top"
+		},
 		"sound": "grass"
 	}
 }

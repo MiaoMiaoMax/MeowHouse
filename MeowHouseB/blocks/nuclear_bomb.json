@@ -17,18 +17,18 @@
 				"flame_odds": 0
 			},
 			"minecraft:unit_cube": {},
-			"minecraft:material_instances":{
-				"*":{
-					"texture":"nuclear_bomb",
-					"render_method":"opaque"
-				},
-				"ends":{
-					"texture":"nuclear_bomb_top",
-					"render_method":"opaque"
-				},
-				"up": "ends",
-				"down": "ends"
-			},
+			// "minecraft:material_instances": {
+			// 	"*": {
+			// 		"texture": "nuclear_bomb",
+			// 		"render_method": "opaque"
+			// 	},
+			// 	"ends": {
+			// 		"texture": "nuclear_bomb_top",
+			// 		"render_method": "opaque"
+			// 	},
+			// 	"up": "ends",
+			// 	"down": "ends"
+			// },
 			"minecraft:loot": "loot_tables/blocks/nuclear_bomb.json",
 			"minecraft:creative_category": {
 				"category": "equipment",
@@ -40,9 +40,9 @@
 				// "target": "self"
 			}
 		},
-		"events":{
-			"effect":{
-				"set_block":{
+		"events": {
+			"effect": {
+				"set_block": {
 					"block_type": "minecraft:air"
 				},
 				"run_command": {
@@ -52,6 +52,6 @@
 					]
 				}
 			}
-        }
-    }
+		}
+	}
 }

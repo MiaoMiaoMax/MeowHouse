@@ -15,8 +15,8 @@ execute @e[type=minecraft:player] ~ ~ ~ effect @e[y=~0.6,r=0.2,type=meow:meow_mo
 ##execute @e[type=meow:radiation_area_effect_cloud] ~ ~ ~ titleraw @a[r=10,rm=8] actionbar {"rawtext":[{"text":"§6已达到致命辐射量"}]}
 ##execute @e[type=meow:radiation_area_effect_cloud] ~ ~ ~ titleraw @a[r=8] actionbar {"rawtext":[{"text":"§6某人：一个客户"}]}
 
-##本作品采用知识共享署名-非商业性-相同方式共享 4.0 国际许可协议进行许可。 要查看此许可证的副本，请访问
-##https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh
+# 本作品采用知识共享署名-非商业性-相同方式共享 4.0 国际许可协议进行许可。 要查看此许可证的副本，请访问
+# https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh
 
-##This work is licensed under the Creative Commons 署名-非商业性使用-相同方式共享 4.0 国际 License. To view a copy of this license, visit
-##http://creativecommons.org/licenses/by-nc-sa/4.0/./.
+# This work is licensed under the Creative Commons 署名-非商业性使用-相同方式共享 4.0 国际 License. To view a copy of this license, visit
+# http://creativecommons.org/licenses/by-nc-sa/4.0/./.

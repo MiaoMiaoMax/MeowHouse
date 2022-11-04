@@ -16,12 +16,12 @@
 				"flame_odds": 20
 			},
 			"minecraft:unit_cube": {},
-			"minecraft:material_instances":{
-				"*":{
-					"texture":"peach_planks",
-					"render_method":"opaque"
-				}
-			},
+			// "minecraft:material_instances":{
+			// 	"*":{
+			// 		"texture":"peach_planks",
+			// 		"render_method":"opaque"
+			// 	}
+			// },
 			"minecraft:loot": "loot_tables/blocks/peach_planks.json"
 		}
 	}

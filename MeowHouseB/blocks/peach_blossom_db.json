@@ -4,9 +4,21 @@
 		"description": {
 			"identifier": "meow:peach_blossom_db",
 			"properties": {
-				"meow:decay_tier": [4, 3, 2, 1, 0], //测量到桃木的距离(以块为单位)
-				"meow:not_decay": [false, true], //检测是否由玩家放置或带有特征
-				"meow:solid": [false, true] //使桃花在被包围时不透明
+				"meow:decay_tier": [
+					4,
+					3,
+					2,
+					1,
+					0
+				], //测量到桃木的距离(以块为单位)
+				"meow:not_decay": [
+					false,
+					true
+				], //检测是否由玩家放置或带有特征
+				"meow:solid": [
+					false,
+					true
+				] //使桃花在被包围时不透明
 			}
 		},
 		"components": {
@@ -25,7 +37,10 @@
 			},
 			"minecraft:ticking": {
 				"looping": true,
-				"range": [0, 0],
+				"range": [
+					0,
+					0
+				],
 				"on_tick": {
 					"event": "check"
 				}
@@ -50,23 +65,23 @@
 			},
 			"minecraft:material_instances": {
 				"*": {
-				 	"texture": "peach_blossom",
+					"texture": "peach_blossom",
 					"render_method": "opaque",
 					"ambient_occlusion": true,
 					"face_dimming": true
 				}
 			}
 		},
-
-
-
 		"permutations": [ //桃花的个个阶段。
 			{
-			  "condition": "query.block_property('meow:decay_tier') == 0",
+				"condition": "query.block_property('meow:decay_tier') == 0",
 				"components": {
 					"minecraft:ticking": {
 						"looping": true,
-						"range": [0, 0],
+						"range": [
+							0,
+							0
+						],
 						"on_tick": {
 							"event": "check"
 						}
@@ -85,7 +100,10 @@
 				"components": {
 					"minecraft:ticking": {
 						"looping": true,
-						"range": [0, 0],
+						"range": [
+							0,
+							0
+						],
 						"on_tick": {
 							"event": "check"
 						}
@@ -99,10 +117,12 @@
 				"components": {
 					"minecraft:ticking": {
 						"looping": true,
-						"range": [0, 0],
+						"range": [
+							0,
+							0
+						],
 						"on_tick": {
 							"event": "check"
-						
 						}
 					},
 					"minecraft:unit_cube": {},
@@ -113,12 +133,14 @@
 				"condition": "query.block_property('meow:decay_tier') == 3",
 				"components": {
 					"minecraft:ticking": {
-					"looping": true,
-					"range": [0, 0],
-					"on_tick": {
-						"event": "check"
-					
-					}
+						"looping": true,
+						"range": [
+							0,
+							0
+						],
+						"on_tick": {
+							"event": "check"
+						}
 					},
 					"minecraft:unit_cube": {},
 					"tag:meow:decay_tier_3": {}
@@ -128,11 +150,14 @@
 				"condition": "query.block_property('meow:decay_tier') == 4",
 				"components": {
 					"minecraft:ticking": {
-					"looping": true,
-					"range": [0, 0],
-					"on_tick": {
-						"event": "check"
-					}
+						"looping": true,
+						"range": [
+							0,
+							0
+						],
+						"on_tick": {
+							"event": "check"
+						}
 					},
 					"minecraft:unit_cube": {},
 					"tag:meow:decay_tier_4": {}
@@ -150,28 +175,25 @@
 				}
 			}
 		],
-
-
-
 		"events": {
-		"meow:on_destroyed": { //定义使用不同工具的战利品
-					"sequence": [
-						{
-							"condition": "query.get_equipped_item_name('main_hand') == 'shears'",
-							"spawn_loot": {
-								"table": "loot_tables/blocks/peach_blossom.json"
-							}
-						},
-						{
-							"condition": "query.get_equipped_item_name('main_hand') != 'shears'",
-							"spawn_loot": {
-								"table": "loot_tables/blocks/peach_blossom_loot.json"
-							}
+			"meow:on_destroyed": { //定义使用不同工具的战利品
+				"sequence": [
+					{
+						"condition": "query.get_equipped_item_name('main_hand') == 'shears'",
+						"spawn_loot": {
+							"table": "loot_tables/blocks/peach_blossom.json"
 						}
-					]
-				},
-		  "check":{ //检测原木 为了 测量到桃木的距离(以块为单位)，另外顺便检测周围方块是否为桃木/桃花/石头 为了 使桃花在被包围时不透明
-			  "sequence": [
+					},
+					{
+						"condition": "query.get_equipped_item_name('main_hand') != 'shears'",
+						"spawn_loot": {
+							"table": "loot_tables/blocks/peach_blossom_loot.json"
+						}
+					}
+				]
+			},
+			"check": { //检测原木 为了 测量到桃木的距离(以块为单位)，另外顺便检测周围方块是否为桃木/桃花/石头 为了 使桃花在被包围时不透明
+				"sequence": [
 					{
 						"condition": "q.block_property('meow:not_decay') == false",
 						"set_block_property": {
@@ -185,12 +207,12 @@
 					}
 				]
 			},
-			"meow:stop_decay":{ //放置时
+			"meow:stop_decay": { //放置时
 				"set_block_property": {
 					"meow:not_decay": true
 				}
 			},
-		   "meow:decay":{ //腐烂时
+			"meow:decay": { //腐烂时
 				"die": {}
 			}
 		}
