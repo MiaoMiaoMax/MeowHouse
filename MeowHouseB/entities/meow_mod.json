@@ -35,11 +35,13 @@
 				}
 			},
 			"meow:kill":{
-				"minecraft:health": {
-					"value": 0,
-					"min": 0,
-					"max": 0
-				}
+				// "minecraft:health": {
+				// 	"value": 0,
+				// 	"min": 0,
+				// 	"max": 0
+				// }
+				// 上面虽然也可以kill，但有声音，有粒子
+				"minecraft:instant_despawn": {}
 			},
 			"meow:nameable_always_show": {
 				"minecraft:nameable": {

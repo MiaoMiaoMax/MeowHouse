@@ -24,11 +24,7 @@
 				}
 			},
 			"meow:kill":{
-				"minecraft:health": {
-					"value": 0,
-					"min": 0,
-					"max": 0
-				}
+				"minecraft:instant_despawn": {}
 			},
 			"meow:nameable_always_show": {
 				"minecraft:nameable": {

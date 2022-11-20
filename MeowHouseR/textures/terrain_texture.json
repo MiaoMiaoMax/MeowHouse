@@ -51,6 +51,9 @@
 		},
 		"nuclear_bomb_top": {
 			"textures": "textures/blocks/nuclear_bomb_top"
+		},
+		"meow_chest": {
+			"textures": "textures/blocks/meow_chest.png"
 		}
 	}
 }

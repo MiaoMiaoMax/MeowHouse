@@ -4,11 +4,6 @@
 		"sound": "grass"
 	},
 	"meow:peach_log": {
-		"textures": {
-			"down": "peach_log_top",
-			"side": "peach_log",
-			"top": "peach_log_top"
-		},
 		"sound": "wood"
 	},
 	"meow:peach_stripped_log": {
@@ -21,9 +16,6 @@
 		"sound": "grass"
 	},
 	"meow:peach_planks": {
-		"textures": {
-			"texture": "peach_planks"
-		},
 		"sound": "wood"
 	},
 	"meow:crafting_table_magic": {
@@ -38,12 +30,12 @@
 		"sound": "wood"
 	},
 	"meow:chaos_recloser": {
-		"sound": "stone",
 		"textures": {
 			"down": "chaos_recloser_down",
 			"side": "chaos_recloser_side",
 			"up": "chaos_recloser_top"
-		}
+		},
+		"sound": "netherite"
 	},
 	"meow:nuclear_bomb": {
 		"textures": {
@@ -52,5 +44,8 @@
 			"up": "nuclear_bomb_top"
 		},
 		"sound": "grass"
+	},
+	"meow_chest": {
+		"sound": "wood"
 	}
 }

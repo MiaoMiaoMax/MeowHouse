@@ -24,19 +24,19 @@
 				"flame_odds": 15
 			},
 			"minecraft:unit_cube": {},
-			// "minecraft:material_instances": {
-			// 	"*": {
-			// 		"texture": "peach_log",
-			// 		"render_method": "opaque"
-			// 	},
-			// 	"ends": {
-			// 		"texture": "peach_log_top",
-			// 		"render_method": "opaque"
-			// 	},
-			// 	"up": "ends",
-			// 	"down": "ends"
-			// 	//为桃木的侧面和顶部/底部设置不同的纹理
-			// },
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "peach_log",
+					"render_method": "opaque"
+				},
+				"ends": {
+					"texture": "peach_log_top",
+					"render_method": "opaque"
+				},
+				"up": "ends",
+				"down": "ends"
+				//为桃木的侧面和顶部/底部设置不同的纹理
+			},
 			"minecraft:loot": "loot_tables/blocks/peach_log.json",
 			"minecraft:creative_category": {
 				"category": "nature",

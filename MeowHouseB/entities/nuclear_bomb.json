@@ -22,11 +22,7 @@
 	
 		"component_groups": {
 			"meow:kill":{
-				"minecraft:health": {
-					"value": 0,
-					"min": 0,
-					"max": 0
-				}
+				"minecraft:instant_despawn": {}
 			}
 		},
 	

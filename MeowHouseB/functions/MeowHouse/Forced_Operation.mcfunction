@@ -1,4 +1,5 @@
 execute @e[type=meow:meow_mod] ~ ~ ~ tp ~ ~ ~
+execute @e[type=meow:meow_mod_chest] ~ ~ ~ tp ~ ~ ~
 ##execute @e[type=meow:radiation_area_effect_cloud] ~ ~ ~ tp ~ ~ ~
 execute @e[type=meow:meow_mod,tag=npc,tag=facing] ~ ~ ~ tp ~ ~ ~ facing @p[r=1.5]
 effect @e[type=meow:meow_mod_can_ride,tag=ride] clear

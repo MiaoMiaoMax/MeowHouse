@@ -6,7 +6,8 @@
 			"states": {
 				"default": {
 					"animations": [
-						"default"						
+						"default",
+						"first"
 					]
 				}
 			}
