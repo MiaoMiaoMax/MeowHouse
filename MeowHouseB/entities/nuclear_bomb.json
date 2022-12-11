@@ -72,7 +72,7 @@
 			"minecraft:transformation": {
 				"into": "meow:mushroom_cloud",
 				// "begin_transform_sound": "nuclear_strike_warning",
-				"transformation_sound": "explode",
+				// "transformation_sound": "explode",
 				"drop_equipment": false,
 				"drop_inventory": false,
 				"keep_level": false,
@@ -80,7 +80,7 @@
 					"block_assist_chance": 0.0,
 					"block_radius": 0,
 					"block_max": 0,
-					"value": 60
+					"value": 40
 				}
 			},
 			"minecraft:is_baby": {},

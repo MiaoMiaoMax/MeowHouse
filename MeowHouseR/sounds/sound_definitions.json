@@ -7,9 +7,29 @@
 			//"max_distance": 30.0,
 			"sounds": [{
 				"is3D" : true,
-				"stream": true,
+				"stream": false,
 				"name" : "sounds/event/nuclear_strike_warning",
 				"volume" : 0.40
+			}]
+		},
+		"event.nuclear_explosion": {
+			"category": "neutral",
+			"min_distance": 20.0,
+			"sounds": [{
+				"is3D" : false,
+				"stream": false,
+				"name" : "sounds/event/nuclear_explosion",
+				"volume" : 1.00
+			}]
+		},
+		"event.nuclear_explosion_tinnitus": {
+			"category": "neutral",
+			"min_distance": 20.0,
+			"sounds": [{
+				"is3D" : false,
+				"stream": false,
+				"name" : "sounds/event/nuclear_explosion_tinnitus",
+				"volume" : 1.00
 			}]
 		}
 	}

@@ -23,8 +23,20 @@
 			"animation_length": 0.05,
 			"timeline": {
 				"0.02": [
-					"/stopsound @a[r=40] event.nuclear_strike_warning",
-					""
+					// "/playsound event.nuclear_explosion @a",
+					// "/playsound event.nuclear_explosion_tinnitus @a",
+					"/execute @a[r=40] ~~~ playsound event.nuclear_explosion @s",
+					"/execute @a[r=40] ~~~ playsound event.nuclear_explosion_tinnitus @s",
+					"/execute @a[rm=40,r=60] ~~~ playsound event.nuclear_explosion @s ~~~ 0.5",
+					"/execute @a[rm=40,r=60] ~~~ playsound event.nuclear_explosion_tinnitus @s ~~~ 0.5",
+					"/stopsound @a[r=50] event.nuclear_strike_warning",
+					"/camerashake add @a[r=45] 2 0.4 positional",
+					"/camerashake add @a[r=50] 1 0.8 positional",
+					"/camerashake add @a[r=55] 0.5 1.2 positional",
+					"/camerashake add @a[r=65] 0.1 3 positional",
+					"/camerashake add @a[r=70] 0.05 5 positional",
+					"/camerashake add @a[r=75] 0.01 10 positional"
+
 				]
 			}
 		}

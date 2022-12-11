@@ -29,11 +29,11 @@
 		},
 		"sound": "wood"
 	},
-	"meow:chaos_recloser": {
+	"meow:chaos_polymerizer": {
 		"textures": {
-			"down": "chaos_recloser_down",
-			"side": "chaos_recloser_side",
-			"up": "chaos_recloser_top"
+			"down": "chaos_polymerizer_down",
+			"side": "chaos_polymerizer_side",
+			"up": "chaos_polymerizer_top"
 		},
 		"sound": "netherite"
 	},
