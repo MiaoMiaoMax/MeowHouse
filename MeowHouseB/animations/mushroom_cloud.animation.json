@@ -7,6 +7,9 @@
 			"timeline": {
 				"0.0": [
 					"/tp ~~~",
+					"/damage @e[r=25] 20 block_explosion",
+					"/damage @e[r=35] 15 block_explosion",
+					"/damage @e[r=45] 10 block_explosion",
 					"/effect @e[r=30,family=!meow] fatal_poison 8 0",
 					"/effect @e[r=30,family=!meow] wither 8 0",
 					"/effect @e[r=38,family=!meow] mining_fatigue 30 2",
@@ -25,6 +28,12 @@
 				"0.02": [
 					// "/playsound event.nuclear_explosion @a",
 					// "/playsound event.nuclear_explosion_tinnitus @a",
+					"/damage @e[r=5] 1000 block_explosion",
+					"/damage @e[r=10] 500 block_explosion",
+					"/damage @e[r=20] 150 block_explosion",
+					"/damage @e[r=30] 90 block_explosion",
+					"/damage @e[r=40] 50 block_explosion",
+					"/damage @e[r=50] 10 block_explosion",
 					"/execute @a[r=40] ~~~ playsound event.nuclear_explosion @s",
 					"/execute @a[r=40] ~~~ playsound event.nuclear_explosion_tinnitus @s",
 					"/execute @a[rm=40,r=60] ~~~ playsound event.nuclear_explosion @s ~~~ 0.5",

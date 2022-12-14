@@ -37,14 +37,14 @@
 		"crafting_table_magic_front": {
 			"textures": "textures/blocks/crafting_table_magic_front"
 		},
-		"chaos_recloser_top": {
-			"textures": "textures/blocks/chaos_recloser_top"
+		"chaos_polymerizer_top": {
+			"textures": "textures/blocks/chaos_polymerizer_top"
 		},
-		"chaos_recloser_side": {
-			"textures": "textures/blocks/chaos_recloser_side"
+		"chaos_polymerizer_side": {
+			"textures": "textures/blocks/chaos_polymerizer_side"
 		},
-		"chaos_recloser_down": {
-			"textures": "textures/blocks/chaos_recloser_down"
+		"chaos_polymerizer_down": {
+			"textures": "textures/blocks/chaos_polymerizer_down"
 		},
 		"nuclear_bomb": {
 			"textures": "textures/blocks/nuclear_bomb"

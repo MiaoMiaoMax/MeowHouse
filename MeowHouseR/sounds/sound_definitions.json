@@ -31,6 +31,16 @@
 				"name" : "sounds/event/nuclear_explosion_tinnitus",
 				"volume" : 1.00
 			}]
+		},
+		"event.chaotic_fissure": {
+			"category": "neutral",
+			"min_distance": 0.0,
+			"sounds": [{
+				"is3D" : true,
+				"stream": false,
+				"name" : "sounds/event/chaotic_fissure",
+				"volume" : 0.50
+			}]
 		}
 	}
 }
