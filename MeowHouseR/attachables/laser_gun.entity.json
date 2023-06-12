@@ -1,0 +1,36 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:attachable": {
+		"description": {
+			"identifier": "meow:laser_gun",
+			"materials": {
+				"default": "entity",
+				"enchanted": "entity_alphatest_glint"
+			},
+			"textures": {
+        "default": "textures/items/laser_gun",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+      "geometry": {
+        "default": "geometry.laser_gun"
+      },
+			"animations": {
+        "hold_first_person": "animation.skeleton_head.hold_first_person",
+        "hold_third_person": "animation.skeleton_head.hold_third_person"
+      },
+      "scripts": {
+        "animate": [
+          {
+            "hold_first_person": "context.is_first_person == 1.0"
+          },
+          {
+            "hold_third_person": "context.is_first_person == 0.0"
+          }
+        ]
+      },
+			"render_controllers": [
+				"controller.render.item_default"
+			]
+		}
+	}
+}

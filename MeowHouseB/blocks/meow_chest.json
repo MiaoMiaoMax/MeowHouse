@@ -1,106 +1,150 @@
 {
-	"format_version": "1.16.100",
+	"format_version": "1.19.80",
 	"minecraft:block": {
 		"description": {
 			"identifier": "meow:meow_chest",
 			"properties": {
 				"meow:top": [0, 1, 2],
 				"meow:rotation": [2, 3, 4, 5]
+			},
+			"menu_category": {
+				"category": "items",
+				"group": "itemGroup.name.chest",
+				"is_hidden_in_commands": false
 			}
 		},
 		"permutations": [
 			{
 				"condition": "query.block_property('meow:rotation') == 2",
 				"components": {
-					"minecraft:rotation": [0, 0, 0]
+					// "minecraft:rotation": [0, 0, 0]
+					"minecraft:transformation": {
+						"rotation": [0, 0, 0]
+					}
 				}
 			},
 			{
 				"condition": "query.block_property('meow:rotation') == 3",
 				"components": {
-					"minecraft:rotation": [0, 180, 0]
+					// "minecraft:rotation": [0, 180, 0]
+					"minecraft:transformation": {
+						"rotation": [0, 180, 0]
+					}
 				}
 			},
 			{
 				"condition": "query.block_property('meow:rotation') == 4",
 				"components": {
-					"minecraft:rotation": [0, 90, 0]
+					// "minecraft:rotation": [0, 90, 0]
+					"minecraft:transformation": {
+						"rotation": [0, 90, 0]
+					}
 				}
 			},
 			{
 				"condition": "query.block_property('meow:rotation') == 5",
 				"components": {
-					"minecraft:rotation": [0, 270, 0]
+					// "minecraft:rotation": [0, 270, 0]
+					"minecraft:transformation": {
+						"rotation": [0, 270, 0]
+					}
 				}
 			},
 			{
 				"condition": "q.block_property('meow:top') == 0 || q.block_property('meow:top') == 2",
 				"components": {
-					"minecraft:entity_collision": {
+					"minecraft:collision_box": {
 						"origin": [-7.0, 0.0, -7.0],
 						"size": [14.0, 13.0, 14.0]
 					},
-					"minecraft:pick_collision": {
+					"minecraft:selection_box": {
 						"origin": [-7.3, 0.0, -7.3],
 						"size": [14.6, 13.3, 14.6]
+					},
+					"minecraft:geometry": {
+						"identifier": "geometry.meow_chest",
+						"bone_visibility": {
+							"top0": true,
+							"top1": false
+						}
 					}
 				}
 			},
 			{
 				"condition": "q.block_property('meow:top') == 1",
 				"components": {
-					"minecraft:entity_collision": {
+					"minecraft:collision_box": {
 						"origin": [-7.0, 0.0, -7.0],
 						"size": [14.0, 10.5, 14.0]
 					},
-					"minecraft:pick_collision": {
+					"minecraft:selection_box": {
 						"origin": [-7.3, 0.0, -7.3],
 						"size": [14.6, 10.8, 14.6]
+					},
+					"minecraft:geometry": {
+						"identifier": "geometry.meow_chest",
+						"bone_visibility": {
+							"top0": false,
+							"top1": true
+						}
 					}
 				}
 			}
 		],
 		"components": {
-			"minecraft:entity_collision": {
+			"minecraft:collision_box": {
 				"origin": [-7.0, 0.0, -7.0],
 				"size": [14.0, 13.0, 14.0]
 			},
-			"minecraft:pick_collision": {
+			"minecraft:selection_box": {
 				"origin": [-7.3, 0.0, -7.3],
 				"size": [14.6, 13.3, 14.6]
 			},
-			"minecraft:destroy_time": 2.0,
-			"minecraft:explosion_resistance": 2.5,
-			"minecraft:friction": 0.6,
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 2.0
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 2.5
+			},
+			"minecraft:friction": 0.6,//改0.7
 			"minecraft:map_color": "#c19045",
-			"minecraft:block_light_absorption": 0,
-			"minecraft:block_light_emission": 0,
-			"minecraft:geometry": "geometry.meow_chest",
+			"minecraft:light_dampening": 0,
+			"minecraft:light_emission": 0,
+			// "minecraft:geometry": "geometry.meow_chest",
+			"minecraft:geometry": {
+				"identifier": "geometry.meow_chest",
+				"bone_visibility": {
+					"top0": true,
+					"top1": false
+				}//为此，把文件从1.16.100兼容模式更新到1.19.80 qwq
+			},
 			"minecraft:material_instances": {
 				"*": {
 					"texture": "meow_chest",
 					"render_method": "alpha_test"
 				}
 			},
-			"minecraft:ticking": {
+			"minecraft:queued_ticking": {
 				"looping": false,
-				"range": [1, 1],
+				"interval_range": [20, 20],
 				"on_tick": {
 					"condition": "q.block_property('meow:top') == 0",
 					"event": "tick_boom"
 				}
 			},
-			"minecraft:part_visibility" : {
-				"rules": {
-					"top0": "q.block_property('meow:top') == 0 || q.block_property('meow:top') == 2",
-					"top1": "q.block_property('meow:top') == 1"
-				}
-			},
+			// 时代的眼泪 
+			// "minecraft:part_visibility" : {
+			// 	"rules": {
+			// 		"top0": "q.block_property('meow:top') == 0 || q.block_property('meow:top') == 2",
+			// 		"top1": "q.block_property('meow:top') == 1"
+			// 	}
+			// },
 			"minecraft:loot": "loot_tables/blocks/meow_chest.json",
-			"minecraft:creative_category": {
-				"category": "items",
-				"group": "itemGroup.name.chest"
-			},
+			// 时代的眼泪x2 1.19.20被废弃
+			// "minecraft:creative_category": {
+			// 	"category": "items",
+			// 	"group": "itemGroup.name.chest"
+			// },
 			"minecraft:on_player_placing": {
 				"event": "meow:set_rotation"
 			},
@@ -129,7 +173,7 @@
 						"particle minecraft:water_evaporation_bucket_emitter ~-0.5~0.5~-0.5",
 						"particle minecraft:totem_particle ~~0.5~",
 						"particle minecraft:totem_particle ~~0.5~",
-						"playsound mob.zombie.wood @a ~~0.4~"
+						"playsound mob.zombie.wood @a ~~0.4~ 0.3 0.85"
 					]
 				},
 				"set_block_property": {

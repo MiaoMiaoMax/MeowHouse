@@ -8,7 +8,17 @@
 				"texture": "textures/particle/chaotic_fissure"
 			}
 		},
+		"events": {
+			"sounds": { 
+				"sound_effect": {
+					"event_name": "event.chaotic_fissure"
+				}
+			}
+		},
 		"components": {
+			"minecraft:emitter_lifetime_events": {
+				"creation_event": "sounds"
+			},
 			"minecraft:emitter_rate_instant": {
 				"num_particles": 1
 			},

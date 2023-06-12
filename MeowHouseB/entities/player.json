@@ -31,6 +31,23 @@
           "min": -1
         }
       },
+      "meow:kick": {
+        "minecraft:explode": { //物理爆炸
+          "fuse_length": 0,
+          "fuse_lit": true,
+          "power": 0.5,
+          "causes_fire": false,
+          "breaks_blocks": false
+        },
+        "minecraft:timer":{
+          "time": [ 0.0, 0.0 ],
+          "looping": false,
+          "time_down_event": {
+            "event": "meow:no_kick",
+            "target": "self"
+          }
+        }
+      },
 
       "minecraft:add_bad_omen": {
         "minecraft:spell_effects": {
@@ -182,7 +199,7 @@
     },
 
     "events": {
-      "meow:invincible":{
+      "meow:invincible": {
         "add": {
           "component_groups": [
             "meow:invincible"
@@ -194,7 +211,7 @@
           ]
         }
       },
-      "meow:no_invincible":{
+      "meow:no_invincible": {
         "add": {
           "component_groups": [
             "meow:no_invincible"
@@ -203,6 +220,20 @@
         "remove": {
           "component_groups": [
             "meow:invincible"
+          ]
+        }
+      },
+      "meow:kick":{
+        "add": {
+          "component_groups": [
+            "meow:kick"
+          ]
+        }
+      },
+      "meow:no_kick":{
+        "remove": {
+          "component_groups": [
+            "meow:kick"
           ]
         }
       },
